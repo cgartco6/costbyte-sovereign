@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="assets/sovereign.css">
+    <title>Secure Access | Sovereign</title>
+</head>
+<body style="background:var(--navy); display:flex; align-items:center; justify-content:center; height:100vh;">
+    <div class="card" style="width:100%; max-width:400px; padding:40px; border-top: 5px solid var(--gold);">
+        <h2 style="text-align:center;">SYSTEM <span>LOGIN</span></h2>
+        <form id="auth-form" style="margin-top:20px;">
+            <input type="email" id="email" placeholder="Email" required style="width:100%; padding:12px; margin-bottom:15px;">
+            <select id="role" style="width:100%; padding:12px; margin-bottom:15px;">
+                <option value="client">Client</option>
+                <option value="admin">Admin</option>
+                <option value="owner">Owner</option>
+            </select>
+            <label style="font-size:0.8rem;"><input type="checkbox" id="remember"> Remember Me</label>
+            <button type="submit" class="btn-gold" style="margin-top:20px;">AUTHORIZE ACCESS</button>
+        </form>
+    </div>
+    <script src="core/auth.js"></script>
+    <script>
+        document.getElementById('auth-form').onsubmit = (e) => {
+            e.preventDefault();
+            Auth.login(
+                document.getElementById('email').value,
+                document.getElementById('role').value,
+                document.getElementById('remember').checked
+            );
+        };
+    </script>
+</body>
+</html>
