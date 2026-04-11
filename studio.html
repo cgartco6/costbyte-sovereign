@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IdeaForge • Design & Marketing Studio</title>
+    <link rel="stylesheet" href="assets/sovereign.css">
+    <style>
+        .studio-tab { display:none; }
+        .studio-tab.active { display:block; }
+        canvas { border:3px solid #d4af37; background:#fff; max-width:100%; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">IDEA<span>FORGE</span></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="studio.html">Studio</a></li>
+                <li><a href="dashboard.html">My Ideas</a></li>
+                <li onclick="logout()">Logout</li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="forge-container" style="max-width:1200px;">
+        <h1>DESIGN + BRANDING + MARKETING STUDIO</h1>
+        <p id="current-idea-display" style="color:#ffd700;font-style:italic;"></p>
+
+        <!-- Tabs -->
+        <div style="display:flex;gap:1rem;margin:2rem 0;border-bottom:2px solid #d4af37;padding-bottom:1rem;">
+            <button onclick="switchTab(0)" class="tab-btn active">Design Studio (Logo)</button>
+            <button onclick="switchTab(1)" class="tab-btn">Branding Kit</button>
+            <button onclick="switchTab(2)" class="tab-btn">Marketing Studio</button>
+        </div>
+
+        <!-- Design Tab -->
+        <div id="tab-0" class="studio-tab active">
+            <h2>Logo Designer</h2>
+            <input type="text" id="logo-text" placeholder="Your startup name" value="IdeaForge" style="width:100%;margin-bottom:1rem;padding:1rem;">
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                <div>
+                    <label>Primary Color</label><br>
+                    <input type="color" id="logo-color" value="#d4af37">
+                </div>
+                <div>
+                    <label>Background</label><br>
+                    <input type="color" id="bg-color" value="#0a1f3d">
+                </div>
+            </div>
+            <canvas id="logo-canvas" width="600" height="280"></canvas>
+            <button onclick="generateLogoPNG()" style="margin-top:1rem;">Export Logo as PNG</button>
+        </div>
+
+        <!-- Branding Tab -->
+        <div id="tab-1" class="studio-tab">
+            <h2>Branding Kit Generator</h2>
+            <button onclick="generateBrandingPDF()" style="background:#d4af37;color:#0a1f3d;padding:1rem 2rem;">Generate Branding Guidelines PDF</button>
+            <p style="margin-top:1rem;color:#aaa;">Includes color palette, typography, usage rules — based on your idea.</p>
+        </div>
+
+        <!-- Marketing Tab -->
+        <div id="tab-2" class="studio-tab">
+            <h2>Marketing Studio</h2>
+            <button onclick="generatePitchDeck()" style="margin-right:1rem;background:#d4af37;color:#0a1f3d;padding:1rem 2rem;">Generate Pitch Deck (PDF)</button>
+            <button onclick="generateMarketingPlan()" style="background:#ffd700;color:#0a1f3d;padding:1rem 2rem;">Generate Go-to-Market Plan (PDF)</button>
+        </div>
+    </div>
+
+    <script src="core/auth.js"></script>
+    <script src="core/studio.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script>window.onload = initStudio;</script>
+</body>
+</html>
