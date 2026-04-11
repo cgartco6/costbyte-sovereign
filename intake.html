@@ -5,8 +5,8 @@
     <title>Sovereign Terminal | Production</title>
 </head>
 <body style="background:#000; color:#fff; padding:50px; font-family:monospace;">
-    <div class="container">
-        <h1 id="title" style="color:var(--gold);">PRODUCTION ENGINE ONLINE</h1>
+    <div class="container" style="max-width:800px;">
+        <h1 id="title" style="color:var(--gold);">INITIALIZING PRODUCTION ENGINE...</h1>
         <div id="term" style="padding:20px; height:450px; overflow-y:auto; color:#0f0; margin:20px 0; background:#0a0a0a; border:1px solid var(--gold);"></div>
         <div id="result" style="display:none; text-align:center;">
             <button class="btn-gold" style="width:auto; padding:20px 50px;">DOWNLOAD INDUSTRIAL BUNDLE</button>
@@ -14,18 +14,16 @@
     </div>
     <script>
         const logs = [
-            "> SYNCING WITH FNB ACCOUNT...",
-            "> SYNCING WITH AFRICAN BANK ACCOUNT...",
-            "> AUTHENTICATING 50/50 REVENUE SPLIT...",
-            "> CONNECTING 1,000-NODE MARKETING SWARM...",
-            "> SENTRY AUDIT: HD MEDIA COMPLIANCE CHECK...",
-            "> FORGING INDUSTRIAL BRAND ASSETS...",
-            "> SUCCESS: SPRINT ACTIVE."
+            "> SYNCING REVENUE ACCOUNTS: FNB & AFRICAN BANK...",
+            "> ESTABLISHING 50/50 SETTLEMENT PROTOCOL...",
+            "> ACTIVATING 1,000-NODE MARKETING SWARM...",
+            "> SENTRY: AUDITING BRAND DNA COMPLIANCE...",
+            "> SUCCESS: ASSETS FORGED. SPRINT DEPLOYED."
         ];
         let i = 0;
         const term = document.getElementById('term');
         const interval = setInterval(() => {
-            if(i < logs.length) { term.innerHTML += logs[i++] + "<br>"; }
+            if(i < logs.length) { term.innerHTML += logs[i++] + "<br>"; term.scrollTop = term.scrollHeight; }
             else { 
                 clearInterval(interval); 
                 document.getElementById('title').innerText = "PRODUCTION COMPLETE";
