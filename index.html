@@ -10,7 +10,14 @@
     <header>
         <nav>
             <div class="logo">COST<span>BYTE</span></div>
-            <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
+            
+            <!-- Hamburger Menu -->
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="studio.html">Studio</a></li>
@@ -28,7 +35,10 @@
             <div class="urgency">ONLY 760 PLACES LEFT THIS PHASE</div>
             <h1>LAUNCH YOUR STARTUP.<br>GET PAID FAST.</h1>
             <p class="impulse">Free tier available • Limited paid access • Aggressive Marketing Engine</p>
-            <button onclick="document.getElementById('tiers-section').scrollIntoView({behavior:'smooth'})" class="cta-btn pulse">CHOOSE YOUR TIER →</button>
+            <!-- Fixed clickable big yellow button -->
+            <button onclick="document.getElementById('tiers-section').scrollIntoView({ behavior: 'smooth' })" class="cta-btn pulse">
+                CHOOSE YOUR TIER →
+            </button>
         </div>
     </section>
 
@@ -82,7 +92,7 @@
                 id: 3,
                 name: "Complete Launch Tier",
                 price: 999,
-                desc: "Unlimited documents + priority marketing engine + full auto-posting &amp; support",
+                desc: "Unlimited documents + priority marketing engine + full auto-posting & support",
                 buttonText: "Secure Complete Tier (R999)",
                 action: () => addToCart(3, "Complete Launch Tier", 999)
             }
@@ -108,7 +118,8 @@
         }
 
         function toggleMenu() {
-            document.getElementById('nav-menu').classList.toggle('active');
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
         }
 
         window.onload = () => {
