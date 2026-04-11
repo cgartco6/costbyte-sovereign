@@ -1,19 +1,21 @@
-:root {
-    --navy: #002D5A;
-    --gold: #FFC107;
-    --white: #FFFFFF;
-}
+:root { --navy: #002D5A; --gold: #FFC107; --white: #FFFFFF; }
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+body { background: #f9f9f9; color: #111; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.shop-nav { background: var(--navy); padding: 20px 0; color: #fff; border-bottom: 2px solid var(--gold); }
+.nav-flex { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 800; letter-spacing: 2px; text-decoration: none; color: #fff; }
 
-/* THE MASKED HERO WITH CLEAN ASSET 3794.JPG */
 .hero-mask-laptop {
-    height: 85vh;
-    background: linear-gradient(rgba(0,45,90,0.7), rgba(0,45,90,0.7)), url('../3794.jpg'); /* */
+    height: 80vh;
+    background: linear-gradient(rgba(0,45,90,0.7), rgba(0,45,90,0.7)), url('../3794.jpg');
     background-size: cover; background-position: center;
-    display: flex; align-items: center; color: #fff; text-align: center;
-    border-bottom: 8px solid var(--gold);
+    display: flex; align-items: center; text-align: center; color: #fff;
 }
 
-.btn-gold { 
-    background: var(--gold); color: #000; padding: 20px 40px; border: none; 
-    font-weight: 800; text-transform: uppercase; cursor: pointer;
-}
+.main-title { font-size: 4rem; font-weight: 800; }
+.main-title span { color: var(--gold); }
+.btn-gold { background: var(--gold); color: #000; padding: 15px 30px; border: none; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-block; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+.card { background: #fff; padding: 40px; border: 1px solid #ddd; text-align: center; }
+.card.alpha { background: var(--navy); color: #fff; border: 1px solid var(--gold); }
