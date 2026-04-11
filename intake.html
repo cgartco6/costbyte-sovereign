@@ -1,48 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <link rel="stylesheet" href="assets/sovereign.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <title>Sovereign Production Engine</title>
+    <title>Sovereign Forge</title>
 </head>
 <body style="background:#000; color:#0f0; padding:50px; font-family:monospace;">
-    <div class="container" style="max-width:800px;">
-        <h1 id="status" style="color:#FFC107;">INITIALIZING FORGE...</h1>
-        <div id="term" style="height:400px; overflow-y:auto; border:1px solid #FFC107; padding:20px; background:#050505; margin:20px 0;"></div>
-        <div id="action-zone" style="display:none; text-align:center;">
-            <button onclick="generatePDF()" class="btn-gold">DOWNLOAD BRAND PDF</button>
-            <button onclick="generateZIP()" class="btn-gold" style="margin-left:20px;">DOWNLOAD ASSET ZIP</button>
-        </div>
-    </div>
+    <div id="status">INITIALIZING INDUSTRIAL FORGE...</div>
+    <div id="term" style="height:300px; border:1px solid #FFC107; padding:20px; margin:20px 0;"></div>
+    <button id="dl-btn" onclick="generatePDF()" style="display:none; padding:20px; background:#FFC107; font-weight:800; border:none; cursor:pointer;">DOWNLOAD INDUSTRIAL BUNDLE</button>
+
     <script>
-        const logs = ["> SYNCING FNB ACCOUNTS...", "> AUTHENTICATING 50/50 SPLIT...", "> CONNECTING 1,000-NODE SWARM...", "> FORGING BRAND ASSETS...", "> PRODUCTION COMPLETE."];
+        const logs = ["> SYNCING REVENUE...", "> CONNECTING 1,000-NODE SWARM...", "> FORGING BRAND ASSETS...", "> SUCCESS: SPRINT ACTIVE."];
         let i = 0;
         const interval = setInterval(() => {
             if(i < logs.length) { document.getElementById('term').innerHTML += logs[i++] + "<br>"; }
             else { 
                 clearInterval(interval); 
-                document.getElementById('status').innerText = "PRODUCTION FINISHED";
-                document.getElementById('action-zone').style.display = "block";
+                document.getElementById('dl-btn').style.display = "block"; 
             }
         }, 800);
 
         function generatePDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
-            doc.text("COSTBYTE SOVEREIGN INDUSTRIAL PLAN", 10, 10);
-            doc.save("Plan.pdf");
-        }
-
-        function generateZIP() {
-            const zip = new JSZip();
-            zip.file("Industrial_Readme.txt", "Deploying high-enterprise marketing ecosystems.");
-            zip.generateAsync({type:"blob"}).then(content => {
-                const link = document.createElement('a');
-                link.href = URL.createObjectURL(content);
-                link.download = "Sovereign_Bundle.zip";
-                link.click();
-            });
+            doc.text("COSTBYTE SOVEREIGN: INDUSTRIAL PLAN", 10, 10);
+            doc.save("Industrial_Bundle.pdf");
         }
     </script>
 </body>
