@@ -1,0 +1,23 @@
+{
+  "agency_name": "CostByte Sovereign",
+  "currency": "ZAR",
+  "pricing": {
+    "tiers": {
+      "FREE": 0,
+      "BRONZE": 300,
+      "GOLD": 750,
+      "PLATINUM": 1500
+    },
+    "studios": {
+      "DESIGN": 500,
+      "BRANDING": 450,
+      "MARKETING": 600,
+      "AGGRESSIVE_ENGINE": 1200
+    }
+  },
+  "business_logic": {
+    "payout_split": 0.50,
+    "target_buyers": 750,
+    "sprint_duration_hours": 48
+  }
+}
