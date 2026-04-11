@@ -2,34 +2,38 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="assets/sovereign.css">
-    <title>Sovereign Terminal | Production</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <title>Production Engine | Sovereign</title>
 </head>
-<body style="background:#000; color:#fff; padding:50px; font-family:monospace;">
-    <div class="container" style="max-width:800px;">
-        <h1 id="title" style="color:var(--gold);">INITIALIZING PRODUCTION ENGINE...</h1>
-        <div id="term" style="padding:20px; height:450px; overflow-y:auto; color:#0f0; margin:20px 0; background:#0a0a0a; border:1px solid var(--gold);"></div>
-        <div id="result" style="display:none; text-align:center;">
-            <button class="btn-gold" style="width:auto; padding:20px 50px;">DOWNLOAD INDUSTRIAL BUNDLE</button>
+<body style="background:#000; color:#0f0; padding:50px; font-family:monospace;">
+    <div class="container">
+        <h1 id="status">INITIALIZING INDUSTRIAL FORGE...</h1>
+        <div id="term" style="height:400px; overflow-y:auto; border:1px solid var(--gold); padding:20px; background:#050505; margin:20px 0;"></div>
+        <div id="action-zone" style="display:none; text-align:center;">
+            <button onclick="Generator.createBrandPlan('client@costbyte.com')" class="btn-gold">DOWNLOAD PDF PLAN</button>
+            <button onclick="Generator.createAssetZip()" class="btn-gold" style="margin-left:20px;">DOWNLOAD ZIP BUNDLE</button>
         </div>
     </div>
+    <script src="core/generator.js"></script>
     <script>
         const logs = [
-            "> SYNCING REVENUE ACCOUNTS: FNB & AFRICAN BANK...",
-            "> ESTABLISHING 50/50 SETTLEMENT PROTOCOL...",
-            "> ACTIVATING 1,000-NODE MARKETING SWARM...",
-            "> SENTRY: AUDITING BRAND DNA COMPLIANCE...",
-            "> SUCCESS: ASSETS FORGED. SPRINT DEPLOYED."
+            "> SYNCING REVENUE ACCOUNTS (FNB/AFRI)...",
+            "> VALIDATING 1,000-NODE CLUSTER...",
+            "> COMPILING REELS, SHORTS, AND HD POSTERS...",
+            "> GENERATING REAL-WORLD PDF & ZIP ASSETS...",
+            "> PRODUCTION COMPLETE."
         ];
         let i = 0;
-        const term = document.getElementById('term');
         const interval = setInterval(() => {
-            if(i < logs.length) { term.innerHTML += logs[i++] + "<br>"; term.scrollTop = term.scrollHeight; }
-            else { 
-                clearInterval(interval); 
-                document.getElementById('title').innerText = "PRODUCTION COMPLETE";
-                document.getElementById('result').style.display = "block";
+            if(i < logs.length) {
+                document.getElementById('term').innerHTML += logs[i++] + "<br>";
+            } else {
+                clearInterval(interval);
+                document.getElementById('status').innerText = "PRODUCTION FINISHED";
+                document.getElementById('action-zone').style.display = "block";
             }
-        }, 1200);
+        }, 1000);
     </script>
 </body>
 </html>
