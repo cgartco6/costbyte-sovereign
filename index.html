@@ -4,24 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/sovereign.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <title>CostByte Sovereign | Industrial Production</title>
 </head>
 <body>
     <nav class="shop-nav">
-        <div class="container">
+        <div class="container nav-flex">
             <a href="index.html" class="logo">COSTBYTE SOVEREIGN</a>
             <div class="nav-links">
-                <a href="login.html" class="btn-login">CLIENT LOGIN</a>
+                <a href="login.html" class="btn-outline-white-sm">CLIENT LOGIN</a>
+                <a href="cart.html" class="btn-gold-sm">CART</a>
             </div>
         </div>
     </nav>
 
     <header class="hero-mask-laptop">
         <div class="container">
-            <h1>Real Results. <span>Real Cash.</span></h1>
-            <p>High-Enterprise Design & Branding.</p>
-            <a href="intake.html" class="btn-gold">START PRODUCTION</a>
+            <p class="brand-tag">HIGH-ENTERPRISE DESIGN & AGENCY BRANDING</p>
+            <h1 class="main-title">Real Results. <span>Real Cash</span>.</h1>
+            <p class="subtitle">Deploying high-conversion marketing ecosystems. From $0 Incubator to 1,000-node Aggressive Engine.</p>
+            <div class="hero-actions">
+                <a href="intake.html" class="btn-gold">START PRODUCTION</a>
+            </div>
         </div>
     </header>
+
+    <div class="container" style="padding: 80px 0;">
+        <h2 class="section-label">PRODUCTION TIERS</h2>
+        <div class="grid">
+            <div class="card incubator">
+                <div class="tag">FREE</div>
+                <h3>INCUBATOR</h3>
+                <h2 class="price">R0.00</h2>
+                <button onclick="window.location.href='intake.html'" class="btn-outline">ACTIVATE</button>
+            </div>
+            <div class="card">
+                <h3>BRONZE</h3>
+                <h2 class="price">R300.00</h2>
+                <button class="btn-navy">ADD TO CART</button>
+            </div>
+            <div class="card alpha">
+                <h3>PLATINUM</h3>
+                <h2 class="price">R1,500.00</h2>
+                <button class="btn-gold">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
