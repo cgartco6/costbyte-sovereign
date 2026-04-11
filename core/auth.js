@@ -1,13 +1,13 @@
-// core/auth.js - Memorable Session Engine with Roles
 let currentUser = null;
 let currentRole = null;
 
-function login(username, role = "operator") {
+function login(username, role = "founder", email = "") {
     currentUser = username;
     currentRole = role;
     localStorage.setItem('sovereignUser', username);
     localStorage.setItem('sovereignRole', role);
-    console.log(`Sovereign session started → \( {username} ( \){role})`);
+    if (email) localStorage.setItem('sovereignEmail', email);
+    console.log(`Session started for ${username}`);
 }
 
 function updateAuthUI() {
@@ -22,7 +22,7 @@ function logout() {
     window.location.href = "login.html";
 }
 
-// Restore session on load
+// Restore session
 window.addEventListener('load', () => {
     currentUser = localStorage.getItem('sovereignUser');
     currentRole = localStorage.getItem('sovereignRole');
