@@ -12,17 +12,18 @@
         <div class="container nav-flex">
             <a href="index.html" class="logo">COSTBYTE SOVEREIGN</a>
             <div class="nav-links">
-                <a href="cart.html" class="btn-navy-sm">CART (<span id="cart-count">0</span>)</a>
-                <a href="dashboard.html" class="btn-outline-white-sm">DASHBOARDS</a>
+                <span id="user-display" style="margin-right:15px; font-weight:700; color:var(--gold);"></span>
+                <a href="login.html" id="login-btn" class="btn-outline-white-sm">LOGIN</a>
+                <a href="cart.html" class="btn-gold-sm">CART (<span id="cart-count">0</span>)</a>
             </div>
         </div>
     </nav>
 
-    <header class="hero-mask">
+    <header class="hero-mask-laptop">
         <div class="container">
-            <p class="brand-tag">SURGICAL DESIGN. AGGRESSIVE MARKETING.</p>
-            <h1 class="main-title">Build. Brand. <span>Sovereign</span>.</h1>
-            <p class="subtitle">Industrial Venture Production. Deploying 1,000-node aggressive marketing and professional generative design for the digital textile empire.</p>
+            <p class="brand-tag">HIGH-CONVERSION ARCHITECTURE</p>
+            <h1 class="main-title">Real Gear. <span>Real Cash</span>.</h1>
+            <p class="subtitle">Deploying high-enterprise marketing ecosystems. Use our $0$ Incubator tier to initiate your venture architecture today.</p>
             <div class="hero-actions">
                 <a href="#production-grid" class="btn-gold">ACTIVATE PRODUCTION</a>
             </div>
@@ -39,73 +40,36 @@
                 <ul class="features">
                     <li>Industrial Brand Plan</li>
                     <li>Surgical UI Kit</li>
-                    <li>Community Node Access</li>
                 </ul>
-                <button onclick="addToCart('INCUBATOR', 0)" class="btn-outline">START GENESIS</button>
+                <button onclick="addToCart('INCUBATOR', 0)" class="btn-outline">START FREE</button>
             </div>
             <div class="card">
                 <h3>BRONZE</h3>
                 <h2 class="price">R300.00</h2>
-                <ul class="features">
-                    <li>100 Generative Ads</li>
-                    <li>100-Node Marketing Swarm</li>
-                    <li>Standard Support Agent</li>
-                </ul>
                 <button onclick="addToCart('BRONZE', 300)" class="btn-navy">ADD TO CART</button>
             </div>
             <div class="card">
                 <h3>GOLD</h3>
                 <h2 class="price">R750.00</h2>
-                <ul class="features">
-                    <li>500-Node Marketing Swarm</li>
-                    <li>Full Design & Branding Studio</li>
-                    <li>Advanced A/B Sprint</li>
-                </ul>
                 <button onclick="addToCart('GOLD', 750)" class="btn-navy">ADD TO CART</button>
             </div>
             <div class="card alpha">
-                <div class="tag">DOMINANCE</div>
                 <h3>PLATINUM</h3>
                 <h2 class="price">R1,500.00</h2>
-                <ul class="features">
-                    <li>1,000-Node Aggressive Swarm</li>
-                    <li>Infinite Studio Access</li>
-                    <li>Full Asset Forge</li>
-                </ul>
                 <button onclick="addToCart('PLATINUM', 1500)" class="btn-gold">ADD TO CART</button>
             </div>
         </div>
 
-        <h2 class="section-label" style="margin-top:100px;">INDUSTRIAL STUDIOS (STANDALONE)</h2>
+        <h2 class="section-label" style="margin-top:100px;">STANDALONE STUDIOS</h2>
         <div class="grid">
-            <div class="card">
-                <h3>DESIGN STUDIO</h3>
-                <h2 class="price-sm">R500.00</h2>
-                <p>Surgical UI/UX Production for digital ecosystems.</p>
-                <button onclick="addToCart('DESIGN_STUDIO', 500)" class="btn-navy">ADD TO CART</button>
-            </div>
-            <div class="card">
-                <h3>BRANDING STUDIO</h3>
-                <h2 class="price-sm">R450.00</h2>
-                <p>Industrial Brand DNA generation and logos.</p>
-                <button onclick="addToCart('BRAND_STUDIO', 450)" class="btn-navy">ADD TO CART</button>
-            </div>
-            <div class="card">
-                <h3>MARKETING STUDIO</h3>
-                <h2 class="price-sm">R600.00</h2>
-                <p>Conversion-optimized funnels and lead scripts.</p>
-                <button onclick="addToCart('MARKETING_STUDIO', 600)" class="btn-navy">ADD TO CART</button>
-            </div>
-            <div class="card agg">
-                <div class="tag">HIGH POWER</div>
-                <h3>AGGRESSIVE ENGINE</h3>
-                <h2 class="price-sm">R1,200.00</h2>
-                <p>1,000-Node saturation across social platforms.</p>
-                <button onclick="addToCart('AGG_ENGINE', 1200)" class="btn-gold">ADD TO CART</button>
-            </div>
+            <div class="card"><h3>DESIGN STUDIO</h3><h2 class="price-sm">R500.00</h2><button onclick="addToCart('DESIGN_S', 500)" class="btn-navy">ADD TO CART</button></div>
+            <div class="card"><h3>BRANDING STUDIO</h3><h2 class="price-sm">R450.00</h2><button onclick="addToCart('BRAND_S', 450)" class="btn-navy">ADD TO CART</button></div>
+            <div class="card"><h3>MARKETING STUDIO</h3><h2 class="price-sm">R600.00</h2><button onclick="addToCart('MARKET_S', 600)" class="btn-navy">ADD TO CART</button></div>
+            <div class="card agg"><h3>AGGRESSIVE ENGINE</h3><h2 class="price-sm">R1,200.00</h2><button onclick="addToCart('AGG_E', 1200)" class="btn-gold">ADD TO CART</button></div>
         </div>
     </div>
 
+    <script src="core/auth.js"></script>
     <script src="core/cart.js"></script>
 </body>
 </html>
