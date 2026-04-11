@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/sovereign.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
-    <title>CostByte Sovereign | Industrial Production</title>
+    <title>CostByte Sovereign | Industrial Venture Production</title>
 </head>
 <body>
     <nav class="shop-nav">
         <div class="container nav-flex">
             <a href="index.html" class="logo">COSTBYTE SOVEREIGN</a>
             <div class="nav-links">
-                <a href="shop.html" class="btn-outline-white-sm">EXPLORE INVENTORY</a>
                 <a href="cart.html" class="btn-navy-sm">CART (<span id="cart-count">0</span>)</a>
+                <a href="dashboard.html" class="btn-outline-white-sm">DASHBOARDS</a>
             </div>
         </div>
     </nav>
@@ -22,10 +22,9 @@
         <div class="container">
             <p class="brand-tag">SURGICAL DESIGN. AGGRESSIVE MARKETING.</p>
             <h1 class="main-title">Build. Brand. <span>Sovereign</span>.</h1>
-            <p class="subtitle">1,000-node aggressive marketing and professional generative design. High-enterprise aesthetics for real-world deployment.</p>
+            <p class="subtitle">Deploy 1,000-node aggressive marketing and professional generative design. High-enterprise aesthetics driven by industrial DNA.</p>
             <div class="hero-actions">
-                <a href="#tiers" class="btn-gold">VIEW TIERS</a>
-                <a href="shop.html" class="btn-outline-white">SHOP GEAR</a>
+                <a href="#tiers" class="btn-gold">ACTIVATE PRODUCTION</a>
             </div>
         </div>
     </header>
@@ -33,23 +32,35 @@
     <div id="tiers" class="container" style="padding: 100px 0;">
         <h2 class="section-label">PRODUCTION TIERS</h2>
         <div class="grid">
+            <div class="card incubator">
+                <div class="tag">GENESIS</div>
+                <h3>INCUBATOR (FREE)</h3>
+                <h2 class="price">R0.00</h2>
+                <ul class="features">
+                    <li>Industrial Brand Plan</li>
+                    <li>Surgical UI Kit</li>
+                    <li>Community Node Access</li>
+                </ul>
+                <button onclick="addToCart('FREE', 0)" class="btn-outline">START GENESIS</button>
+            </div>
             <div class="card premium">
-                <h3>BRONZE PACKAGE</h3>
+                <h3>BRONZE</h3>
                 <h2 class="price">R300.00</h2>
                 <ul class="features">
                     <li>100 Generative Ads</li>
                     <li>100-Node Marketing Swarm</li>
                 </ul>
-                <button onclick="addToCart('BRONZE')" class="btn-navy">INITIATE DEDEPLOYMENT</button>
+                <button onclick="addToCart('BRONZE', 300)" class="btn-navy">ADD TO CART</button>
             </div>
             <div class="card alpha">
-                <h3>PLATINUM SUITE</h3>
+                <div class="tag">DOMINANCE</div>
+                <h3>PLATINUM</h3>
                 <h2 class="price">R1,500.00</h2>
                 <ul class="features">
-                    <li>Infinite Studio Access</li>
                     <li>1,000-Node Aggressive Swarm</li>
+                    <li>Infinite Studio Access</li>
                 </ul>
-                <button onclick="addToCart('PLATINUM')" class="btn-gold">DOMINATE MARKET</button>
+                <button onclick="addToCart('PLATINUM', 1500)" class="btn-gold">ADD TO CART</button>
             </div>
         </div>
     </div>
