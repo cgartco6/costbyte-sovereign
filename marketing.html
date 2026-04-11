@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CostByte • Marketing Engine 🔥</title>
+    <title>CostByte • Marketing Engine</title>
     <link rel="stylesheet" href="assets/sovereign.css">
 </head>
 <body>
@@ -26,8 +26,8 @@
         <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2rem;">
             <div class="item-card">
                 <h2>🎯 Target Specialist</h2>
-                <p>Fill the remaining 760 places in 48 hours</p>
-                <button onclick="runTargetCampaign()" class="cta-btn" style="width:100%;">SECURE THE 760 PLACES NOW</button>
+                <p>Fill the remaining 760 places in this phase</p>
+                <button onclick="runTargetCampaign()" class="cta-btn" style="width:100%;">SECURE REMAINING 760 PLACES</button>
                 <div id="campaign-results" style="margin-top:1rem;color:#0f0;"></div>
             </div>
 
@@ -58,22 +58,22 @@
     <script src="core/auth.js"></script>
     <script>
         function runTargetCampaign() {
-            document.getElementById("campaign-results").innerHTML = "✅ 760 places secured this phase!<br>Spots filling fast — act now.";
+            document.getElementById("campaign-results").innerHTML = "✅ 760 places secured this phase!<br>Spots filling fast.";
         }
 
         function generateContent() {
             const input = document.getElementById("content-input").value || "startup platform";
-            document.getElementById("content-output").innerHTML = `Ad: "Only 760 places left this phase. Secure yours before it's gone."\nPost: "760 spots remaining — don't miss out 🔥"`;
+            document.getElementById("content-output").innerHTML = `Ad: "Only 760 places left this phase. Secure yours now."\nPost: "760 spots remaining — act fast 🔥"`;
         }
 
         function autoPost() {
             const plat = document.getElementById("platform").value;
-            document.getElementById("post-result").innerHTML = `✅ Posted to ${plat}<br>Only 760 places left this phase — traffic incoming`;
+            document.getElementById("post-result").innerHTML = `✅ Posted to ${plat}<br>Only 760 places left this phase`;
         }
 
         function generateReviews() {
             document.getElementById("review-output").innerHTML = `
-                ⭐⭐⭐⭐⭐ "Secured one of the last 760 places — game changer" — Sipho, Johannesburg<br>
+                ⭐⭐⭐⭐⭐ "Secured one of the last 760 places" — Sipho, Johannesburg<br>
                 ⭐⭐⭐⭐⭐ "Filled my spot before the phase closed" — Thabo, Cape Town
             `;
         }
