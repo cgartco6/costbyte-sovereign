@@ -3,72 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/sovereign.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
-    <title>CostByte Sovereign | Industrial Production</title>
-    <style>
-        :root { --navy: #002D5A; --gold: #FFC107; --white: #FFFFFF; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
-        body { background: #f9f9f9; color: #111; line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* NAVBAR */
-        .shop-nav { background: var(--navy); padding: 20px 0; border-bottom: 2px solid var(--gold); }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; letter-spacing: 2px; text-decoration: none; color: #fff; font-size: 1.2rem; }
-
-        /* HERO MASK - USING 3794.JPG */
-        .hero-mask-laptop {
-            height: 80vh;
-            background: linear-gradient(rgba(0,45,90,0.75), rgba(0,45,90,0.75)), url('3794.jpg');
-            background-size: cover; background-position: center;
-            display: flex; align-items: center; text-align: center; color: #fff;
-        }
-
-        .main-title { font-size: 4.5rem; font-weight: 800; line-height: 1; margin-bottom: 20px; }
-        .main-title span { color: var(--gold); }
-        .btn-gold { background: var(--gold); color: #000; padding: 18px 40px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; }
-
-        /* PRODUCTION GRID */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 60px 0; }
-        .card { background: #fff; padding: 50px; border: 1px solid #ddd; text-align: center; }
-        .card.alpha { background: var(--navy); color: #fff; border: 1px solid var(--gold); }
-    </style>
+    <title>CostByte Sovereign | Industrial Agency Production</title>
 </head>
 <body>
     <nav class="shop-nav">
         <div class="container nav-flex">
-            <a href="#" class="logo">COSTBYTE SOVEREIGN</a>
+            <a href="index.html" class="logo">COSTBYTE SOVEREIGN</a>
             <div class="nav-links">
-                <a href="login.html" style="color:#fff; text-decoration:none; margin-right:20px; font-weight:700;">CLIENT LOGIN</a>
-                <a href="#" style="background:var(--gold); color:#000; padding:8px 15px; text-decoration:none; font-weight:800;">CART (0)</a>
+                <span id="user-display" style="margin-right:15px; font-weight:700; color:#FFC107;"></span>
+                <a href="login.html" id="login-btn" class="btn-outline-white-sm">CLIENT ACCESS</a>
+                <a href="cart.html" class="btn-gold-sm">CART (<span id="cart-count">0</span>)</a>
             </div>
         </div>
     </nav>
 
     <header class="hero-mask-laptop">
         <div class="container">
-            <p style="color:var(--gold); letter-spacing:3px; font-weight:700; margin-bottom:10px;">HIGH-ENTERPRISE DESIGN</p>
-            <h1 class="main-title">Real Results. <span>Real Cash</span>.</h1>
-            <p style="font-size:1.2rem; margin-bottom:30px; max-width:700px; margin-left:auto; margin-right:auto;">Deploying 1,000-node marketing ecosystems. Functional assets for your sneaker-bag empire.</p>
-            <a href="intake.html" class="btn-gold">START PRODUCTION</a>
+            <p class="brand-tag">HIGH-CONVERSION ARCHITECTURE</p>
+            <h1 class="main-title">Real Gear. <span>Real Cash.</span></h1>
+            <p class="subtitle">Deploying 1,000-node marketing ecosystems and high-enterprise digital branding. No simulations. Just deployment.</p>
+            <div class="hero-actions">
+                <a href="#production-grid" class="btn-gold">ACTIVATE PRODUCTION</a>
+            </div>
         </div>
     </header>
 
-    <div class="container">
+    <div id="production-grid" class="container" style="padding: 100px 0;">
+        <h2 class="section-label">PRODUCTION TIERS</h2>
         <div class="grid">
+            <div class="card incubator">
+                <div class="tag">GENESIS</div>
+                <h3>INCUBATOR</h3>
+                <h2 class="price">R0.00</h2>
+                <ul class="features">
+                    <li>Industrial Brand Plan (PDF)</li>
+                    <li>Surgical UI Kit Access</li>
+                </ul>
+                <button onclick="window.location.href='intake.html'" class="btn-outline">START FREE</button>
+            </div>
             <div class="card">
-                <h3>INCUBATOR (FREE)</h3>
-                <h2 style="margin:20px 0;">R0.00</h2>
-                <p style="margin-bottom:20px; font-size:0.9rem;">Test our production loop with real PDF & ZIP outputs.</p>
-                <a href="intake.html" style="display:block; border:2px solid var(--navy); padding:15px; color:var(--navy); text-decoration:none; font-weight:800;">ACTIVATE</a>
+                <h3>BRONZE TIER</h3>
+                <h2 class="price">R300.00</h2>
+                <ul class="features"><li>Basic Marketing Node</li><li>Core Visual Bundle</li></ul>
+                <button class="btn-navy">ADD TO CART</button>
+            </div>
+            <div class="card">
+                <h3>GOLD TIER</h3>
+                <h2 class="price">R750.00</h2>
+                <ul class="features"><li>Advanced Conversion Agent</li><li>HD Social Asset Set</li></ul>
+                <button class="btn-navy">ADD TO CART</button>
             </div>
             <div class="card alpha">
+                <div class="tag">ENTERPRISE</div>
                 <h3>PLATINUM TIER</h3>
-                <h2 style="margin:20px 0; color:var(--gold);">R1,500.00</h2>
-                <p style="margin-bottom:20px; font-size:0.9rem; color:#ccc;">Full 1,000-node aggressive marketing engine.</p>
-                <button class="btn-gold" style="width:100%;">ADD TO CART</button>
+                <h2 class="price">R1,500.00</h2>
+                <ul class="features"><li>1,000-Node Aggressive Engine</li><li>Full Sovereign Branding</li></ul>
+                <button class="btn-gold">ADD TO CART</button>
+            </div>
+        </div>
+
+        <h2 class="section-label" style="margin-top:80px;">STANDALONE STUDIOS</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>DESIGN STUDIO</h3>
+                <h2 class="price-sm">R500.00</h2>
+                <button class="btn-navy">ADD TO CART</button>
+            </div>
+            <div class="card">
+                <h3>BRANDING STUDIO</h3>
+                <h2 class="price-sm">R450.00</h2>
+                <button class="btn-navy">ADD TO CART</button>
+            </div>
+            <div class="card">
+                <h3>MARKETING STUDIO</h3>
+                <h2 class="price-sm">R600.00</h2>
+                <button class="btn-navy">ADD TO CART</button>
+            </div>
+            <div class="card agg">
+                <div class="tag">VIRAL</div>
+                <h3>AGGRESSIVE ENGINE</h3>
+                <h2 class="price-sm">R1,200.00</h2>
+                <button class="btn-gold">ADD TO CART</button>
             </div>
         </div>
     </div>
+
+    <script src="core/auth.js"></script>
+    <script src="core/cart.js"></script>
 </body>
 </html>
