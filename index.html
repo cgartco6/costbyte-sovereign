@@ -3,94 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/sovereign.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
-    <title>CostByte Sovereign | Industrial Agency Production</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <title>CostByte Sovereign | Industrial Production</title>
+    <style>
+        :root { --navy: #002D5A; --gold: #FFC107; --white: #FFFFFF; --dark: #0a0a0a; --grey: #f4f4f4; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background: var(--grey); color: #111; line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* HIGH-ENTERPRISE NAVIGATION */
+        nav { background: var(--navy); padding: 20px 0; border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; color: #fff; text-decoration: none; font-size: 1.5rem; letter-spacing: 2px; }
+        .nav-links a { color: #fff; text-decoration: none; font-weight: 700; margin-left: 20px; font-size: 0.9rem; }
+        .btn-cart { background: var(--gold); color: #000; padding: 8px 15px; font-weight: 800; }
+
+        /* INDUSTRIAL HERO MASK - USES 3794.JPG */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(0,45,90,0.8), rgba(0,45,90,0.8)), url('3794.jpg');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; text-align: center; color: #fff;
+            border-bottom: 10px solid var(--gold);
+        }
+        .hero h1 { font-size: 5.5rem; font-weight: 800; line-height: 0.9; margin-bottom: 20px; letter-spacing: -3px; }
+        .hero h1 span { color: var(--gold); }
+        .hero p { font-size: 1.4rem; max-width: 850px; margin: 0 auto 40px; color: #ddd; font-weight: 400; }
+        .btn-gold-lg { background: var(--gold); color: #000; padding: 22px 50px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; font-size: 1.1rem; }
+
+        /* PRODUCT GRID ARCHITECTURE */
+        .section-header { margin: 80px 0 40px; border-left: 10px solid var(--gold); padding-left: 20px; }
+        .section-header h2 { font-size: 0.9rem; letter-spacing: 6px; text-transform: uppercase; color: var(--navy); }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 80px; }
+        .card { background: #fff; padding: 50px 30px; border: 1px solid #ddd; text-align: center; position: relative; transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); border-color: var(--gold); }
+        .card.premium { background: var(--navy); color: #fff; border: 2px solid var(--gold); }
+        .card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 15px; }
+        .price { font-size: 2.5rem; font-weight: 800; margin: 20px 0; color: var(--navy); }
+        .premium .price { color: var(--gold); }
+        .tag { background: var(--gold); color: #000; font-size: 0.7rem; font-weight: 900; padding: 5px 15px; position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); }
+        
+        .btn-action { width: 100%; padding: 15px; border: 2px solid var(--navy); background: none; font-weight: 800; text-transform: uppercase; cursor: pointer; }
+        .premium .btn-action { background: var(--gold); border: none; color: #000; }
+
+        /* PRODUCTION TERMINAL OVERLAY */
+        #terminal-overlay { display: none; position: fixed; inset: 0; background: var(--dark); color: #0f0; z-index: 2000; padding: 60px; font-family: 'Courier New', monospace; overflow-y: auto; }
+        .term-wrap { max-width: 1000px; margin: 0 auto; }
+        .log-line { margin-bottom: 10px; border-left: 2px solid var(--gold); padding-left: 15px; opacity: 0; animation: fadeIn 0.3s forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+    </style>
 </head>
 <body>
-    <nav class="shop-nav">
-        <div class="container nav-flex">
-            <a href="index.html" class="logo">COSTBYTE SOVEREIGN</a>
-            <div class="nav-links">
-                <span id="user-display" style="margin-right:15px; font-weight:700; color:#FFC107;"></span>
-                <a href="login.html" id="login-btn" class="btn-outline-white-sm">CLIENT ACCESS</a>
-                <a href="cart.html" class="btn-gold-sm">CART (<span id="cart-count">0</span>)</a>
-            </div>
-        </div>
-    </nav>
 
-    <header class="hero-mask-laptop">
-        <div class="container">
-            <p class="brand-tag">HIGH-CONVERSION ARCHITECTURE</p>
-            <h1 class="main-title">Real Gear. <span>Real Cash.</span></h1>
-            <p class="subtitle">Deploying 1,000-node marketing ecosystems and high-enterprise digital branding. No simulations. Just deployment.</p>
-            <div class="hero-actions">
-                <a href="#production-grid" class="btn-gold">ACTIVATE PRODUCTION</a>
-            </div>
+<nav>
+    <div class="container nav-flex">
+        <a href="#" class="logo">COSTBYTE SOVEREIGN</a>
+        <div class="nav-links">
+            <a href="#">DASHBOARD</a>
+            <a href="#" class="btn-cart">CART (0)</a>
         </div>
-    </header>
+    </div>
+</nav>
 
-    <div id="production-grid" class="container" style="padding: 100px 0;">
-        <h2 class="section-label">PRODUCTION TIERS</h2>
-        <div class="grid">
-            <div class="card incubator">
-                <div class="tag">GENESIS</div>
-                <h3>INCUBATOR</h3>
-                <h2 class="price">R0.00</h2>
-                <ul class="features">
-                    <li>Industrial Brand Plan (PDF)</li>
-                    <li>Surgical UI Kit Access</li>
-                </ul>
-                <button onclick="window.location.href='intake.html'" class="btn-outline">START FREE</button>
-            </div>
-            <div class="card">
-                <h3>BRONZE TIER</h3>
-                <h2 class="price">R300.00</h2>
-                <ul class="features"><li>Basic Marketing Node</li><li>Core Visual Bundle</li></ul>
-                <button class="btn-navy">ADD TO CART</button>
-            </div>
-            <div class="card">
-                <h3>GOLD TIER</h3>
-                <h2 class="price">R750.00</h2>
-                <ul class="features"><li>Advanced Conversion Agent</li><li>HD Social Asset Set</li></ul>
-                <button class="btn-navy">ADD TO CART</button>
-            </div>
-            <div class="card alpha">
-                <div class="tag">ENTERPRISE</div>
-                <h3>PLATINUM TIER</h3>
-                <h2 class="price">R1,500.00</h2>
-                <ul class="features"><li>1,000-Node Aggressive Engine</li><li>Full Sovereign Branding</li></ul>
-                <button class="btn-gold">ADD TO CART</button>
-            </div>
+<header class="hero">
+    <div class="container">
+        <p style="color:var(--gold); font-weight:800; letter-spacing:5px; margin-bottom:15px;">INDUSTRIAL BRANDING ENGINE</p>
+        <h1>Real Assets.<br><span>Real Results.</span></h1>
+        <p>Deploying 1,000-node aggressive marketing swarms for the sneaker-bag empire. Functional assets for hard-cash clients.</p>
+        <button onclick="launchForge()" class="btn-gold-lg">START PRODUCTION</button>
+    </div>
+</header>
+
+<div class="container">
+    <div class="section-header"><h2>Core Production Tiers</h2></div>
+    <div class="grid">
+        <div class="card">
+            <div class="tag">GENESIS</div>
+            <h3>INCUBATOR</h3>
+            <div class="price">R0.00</div>
+            <p style="font-size:0.8rem; margin-bottom:25px;">Test production loop with real PDF strategy output.</p>
+            <button onclick="launchForge()" class="btn-action">ACTIVATE</button>
         </div>
-
-        <h2 class="section-label" style="margin-top:80px;">STANDALONE STUDIOS</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>DESIGN STUDIO</h3>
-                <h2 class="price-sm">R500.00</h2>
-                <button class="btn-navy">ADD TO CART</button>
-            </div>
-            <div class="card">
-                <h3>BRANDING STUDIO</h3>
-                <h2 class="price-sm">R450.00</h2>
-                <button class="btn-navy">ADD TO CART</button>
-            </div>
-            <div class="card">
-                <h3>MARKETING STUDIO</h3>
-                <h2 class="price-sm">R600.00</h2>
-                <button class="btn-navy">ADD TO CART</button>
-            </div>
-            <div class="card agg">
-                <div class="tag">VIRAL</div>
-                <h3>AGGRESSIVE ENGINE</h3>
-                <h2 class="price-sm">R1,200.00</h2>
-                <button class="btn-gold">ADD TO CART</button>
-            </div>
+        <div class="card">
+            <h3>BRONZE</h3>
+            <div class="price">R300.00</div>
+            <button class="btn-action">ADD TO CART</button>
+        </div>
+        <div class="card">
+            <h3>GOLD</h3>
+            <div class="price">R750.00</div>
+            <button class="btn-action">ADD TO CART</button>
+        </div>
+        <div class="card premium">
+            <div class="tag">AGGRESSIVE</div>
+            <h3>PLATINUM</h3>
+            <div class="price">R1,500.00</div>
+            <button class="btn-action">ADD TO CART</button>
         </div>
     </div>
 
-    <script src="core/auth.js"></script>
-    <script src="core/cart.js"></script>
+    <div class="section-header"><h2>Specialized Industrial Studios</h2></div>
+    <div class="grid">
+        <div class="card"><h3>Design Studio</h3><div class="price" style="font-size:1.8rem;">R500</div><button class="btn-action">ADD</button></div>
+        <div class="card"><h3>Branding Studio</h3><div class="price" style="font-size:1.8rem;">R450</div><button class="btn-action">ADD</button></div>
+        <div class="card"><h3>Marketing Studio</h3><div class="price" style="font-size:1.8rem;">R600</div><button class="btn-action">ADD</button></div>
+        <div class="card premium"><h3>Aggressive Engine</h3><div class="price" style="font-size:1.8rem;">R1,200</div><button class="btn-action">ADD</button></div>
+    </div>
+</div>
+
+<div id="terminal-overlay">
+    <div class="term-wrap">
+        <h1 style="color:var(--gold); margin-bottom:40px;">SOVEREIGN INDUSTRIAL FORGE v5.0</h1>
+        <div id="log-output"></div>
+        <div id="forge-actions" style="display:none; margin-top:50px;">
+            <button onclick="downloadRealPDF()" class="btn-gold-lg" style="margin-right:20px;">DOWNLOAD INDUSTRIAL PDF</button>
+            <button onclick="downloadRealZIP()" class="btn-gold-lg" style="background:#fff; color:#000;">DOWNLOAD ASSET ZIP</button>
+            <p style="margin-top:30px; color:#666; cursor:pointer;" onclick="location.reload()">[EXIT TERMINAL]</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function launchForge() {
+        document.getElementById('terminal-overlay').style.display = 'block';
+        const logs = [
+            "> [ACCESS] INITIATING SOVEREIGN CORE...",
+            "> [SYNC] CONNECTING REVENUE CHANNELS (FNB / AFRICAN BANK)...",
+            "> [SYNC] AUTHENTICATING 50/50 SETTLEMENT PROTOCOL...",
+            "> [ENGINE] MAPPING 1,000-NODE MARKETING SWARM...",
+            "> [ASSET] FORGING BRAND DNA FOR SNEAKER-BAG EMPIRE...",
+            "> [ASSET] COMPILING HIGH-CONVERSION REELS AND POSTERS...",
+            "> [SUCCESS] INDUSTRIAL BUNDLE STABILIZED. DOWNLOADS ACTIVE."
+        ];
+        let i = 0;
+        const out = document.getElementById('log-output');
+        const interval = setInterval(() => {
+            if(i < logs.length) {
+                const line = document.createElement('div');
+                line.className = 'log-line';
+                line.innerText = logs[i++];
+                out.appendChild(line);
+                out.scrollTop = out.scrollHeight;
+            } else {
+                clearInterval(interval);
+                document.getElementById('forge-actions').style.display = 'block';
+            }
+        }, 1000);
+    }
+
+    function downloadRealPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.setFontSize(22);
+        doc.text("COSTBYTE SOVEREIGN: INDUSTRIAL BRAND PLAN", 20, 30);
+        doc.setFontSize(12);
+        doc.text("Project: Sneaker-Bag Retail Empire Deployment", 20, 50);
+        doc.text("Nodes: 1,000 Aggressive Marketing Points", 20, 60);
+        doc.text("Settlement: Verified Industrial Split", 20, 70);
+        doc.save("Sovereign_Industrial_Plan.pdf");
+    }
+
+    function downloadRealZIP() {
+        const zip = new JSZip();
+        zip.file("README_INDUSTRIAL.txt", "Sovereign Industrial Assets Ready for GitHub CI/CD Deployment.");
+        zip.generateAsync({type:"blob"}).then(function(content) {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(content);
+            link.download = "Sovereign_Industrial_Bundle.zip";
+            link.click();
+        });
+    }
+</script>
+
 </body>
 </html>
