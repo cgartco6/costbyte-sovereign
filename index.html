@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costbyte Sovereign Agency • Marketplace</title>
+    <link rel="stylesheet" href="assets/sovereign.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SOVEREIGN<span>AGENCY</span></div>
+            <ul>
+                <li><a href="index.html">Market</a></li>
+                <li><a href="intake.html">Terminal Forge</a></li>
+                <li id="cart-btn">Cart (<span id="cart-count">0</span>)</li>
+                <li id="auth-status">Guest</li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <img src="3794.jpg" alt="Sovereign Hero Asset" class="hero-image">
+        <div class="hero-overlay">
+            <h1>Reclaim Your Digital Sovereignty</h1>
+            <p>Premium tools, services, and assets for the sovereign operator.</p>
+            <button onclick="window.location.href='intake.html'">Enter the Forge</button>
+        </div>
+    </section>
+
+    <section class="marketplace">
+        <h2>Available Assets</h2>
+        <div class="grid" id="items-grid">
+            <!-- Populated by JS -->
+        </div>
+    </section>
+
+    <footer>
+        <p>Costbyte Sovereign Agency • Industrial Deployment • 2026</p>
+    </footer>
+
+    <script src="core/auth.js"></script>
+    <script src="core/cart.js"></script>
+    <script>
+        // Sample items
+        const items = [
+            { id: 1, name: "Sovereign VPN Node", price: 299, desc: "Self-hosted zero-trust tunnel" },
+            { id: 2, name: "Terminal Forge License", price: 149, desc: "Unlimited intake sessions" },
+            { id: 3, name: "Encrypted Data Vault", price: 499, desc: "Air-gapped storage module" }
+        ];
+
+        function renderItems() {
+            const grid = document.getElementById('items-grid');
+            grid.innerHTML = '';
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'item-card';
+                card.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p>${item.desc}</p>
+                    <div class="price">$${item.price}</div>
+                    <button onclick="addToCart(\( {item.id}, ' \){item.name}', ${item.price})">Add to Cart</button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        window.onload = () => {
+            renderItems();
+            updateAuthUI();
+            updateCartCount();
+        };
+    </script>
+</body>
+</html>
