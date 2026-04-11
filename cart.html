@@ -2,35 +2,27 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="assets/sovereign.css">
-    <title>Cart Review | CostByte</title>
+    <title>Your Cart | Sovereign</title>
 </head>
-<body style="background:#f9f9f9;">
-    <div class="container" style="max-width:600px; padding-top:100px;">
-        <div class="card" style="padding:40px;">
-            <h2 style="margin-bottom:30px; text-align:center;">ORDER <span>REVIEW</span></h2>
-            
-            <div id="cart-items">
-                </div>
-
-            <div style="display:flex; justify-content:space-between; margin-top:30px; border-top:2px solid #000; padding-top:20px;">
-                <h3>TOTAL:</h3>
-                <h3 style="color:#001F3F;">R <span id="cart-total">0.00</span></h3>
-            </div>
-            
-            <button onclick="processOrder()" class="btn-gold" style="width:100%; margin-top:30px; padding:20px;">PROCEED TO PAYMENT</button>
+<body style="background:#fff;">
+    <div class="container" style="padding-top:80px; max-width:800px;">
+        <h2 class="section-label">ORDER REVIEW</h2>
+        <table style="width:100%; border-collapse:collapse; margin-top:20px;">
+            <thead>
+                <tr style="background:var(--navy); color:#fff;">
+                    <th style="padding:15px; text-align:left;">PACKAGE</th>
+                    <th style="padding:15px; text-align:left;">PRICE</th>
+                    <th style="padding:15px; text-align:right;">ACTION</th>
+                </tr>
+            </thead>
+            <tbody id="cart-list"></tbody>
+        </table>
+        <div style="margin-top:30px; text-align:right; border-top:5px solid var(--navy); padding-top:20px;">
+            <h3>TOTAL: R<span id="cart-total">0.00</span></h3>
+            <button onclick="alert('Redirecting to PayFast Secure Gateway...')" class="btn-gold" style="width:300px; margin-top:20px;">PROCEED TO PAYMENT</button>
         </div>
     </div>
-
     <script src="core/cart.js"></script>
-    <script>
-        function processOrder() {
-            const total = document.getElementById('cart-total').innerText;
-            if (parseFloat(total) <= 0) return alert("Your cart is empty.");
-            
-            // Payment Integration Point
-            console.log(`Processing Order. Total: R${total}`);
-            alert(`Redirecting to payment gateway for R${total}.`);
-        }
-    </script>
+    <script>document.addEventListener('DOMContentLoaded', renderCartItems);</script>
 </body>
 </html>
