@@ -3,57 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sovereign Agency • Command Dashboard</title>
+    <title>IdeaForge • My Ideas</title>
     <link rel="stylesheet" href="assets/sovereign.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">SOVEREIGN<span>AGENCY</span></div>
+            <div class="logo">IDEA<span>FORGE</span></div>
             <ul>
-                <li><a href="index.html">Marketplace</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="intake.html">Production Terminal</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="intake.html">New Idea</a></li>
+                <li><a href="dashboard.html">My Ideas</a></li>
                 <li onclick="logout()">Logout</li>
             </ul>
         </nav>
     </header>
 
     <div class="dashboard">
-        <h1>OPERATIONS DATA CENTER</h1>
-        <div class="role-badge" id="role-badge">ROLE: ADMIN</div>
-        
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h3>Active Nodes</h3>
-                <div class="value">47</div>
-            </div>
-            <div class="stat-card">
-                <h3>Assets Deployed</h3>
-                <div class="value">12</div>
-            </div>
-            <div class="stat-card">
-                <h3>Session Integrity</h3>
-                <div class="value">100%</div>
-            </div>
-        </div>
-
-        <h2>Recent Activity Log</h2>
-        <ul class="activity-log" id="activity-log"></ul>
+        <h1>MY STARTUP IDEAS</h1>
+        <div id="ideas-list" style="margin-top:2rem;"></div>
     </div>
 
     <script src="core/auth.js"></script>
+    <script src="core/idea.js"></script>
     <script>
         window.onload = () => {
             updateAuthUI();
-            const role = localStorage.getItem('sovereignRole') || 'OPERATOR';
-            document.getElementById('role-badge').textContent = `ROLE: ${role.toUpperCase()}`;
-            
-            document.getElementById('activity-log').innerHTML = `
-                <li>[2026-04-11 23:15] Secure vault synchronization completed</li>
-                <li>[2026-04-11 22:40] Enterprise VPN Cluster acquired</li>
-                <li>[2026-04-11 21:05] Production terminal session forged</li>
-            `;
+            renderIdeas();
         };
     </script>
 </body>
