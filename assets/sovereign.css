@@ -1,30 +1,39 @@
-:root { --navy: #002D5A; --gold: #FFC107; --white: #FFFFFF; }
+:root { --navy: #002D5A; --gold: #FFC107; --white: #FFFFFF; --dark: #111111; }
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
-body { background: #f9f9f9; color: #111; line-height: 1.6; }
+body { background: #f9f9f9; color: var(--dark); line-height: 1.6; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-.shop-nav { background: var(--navy); padding: 20px 0; color: #fff; border-bottom: 2px solid var(--gold); }
+/* NAVIGATION */
+.shop-nav { background: var(--navy); padding: 20px 0; color: #fff; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--gold); }
 .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-weight: 800; letter-spacing: 2px; text-decoration: none; color: #fff; font-size: 1.2rem; }
+.logo { font-weight: 800; letter-spacing: 2px; text-decoration: none; color: #fff; font-size: 1.3rem; }
 
+/* THE MASKED HERO WITH ASSET 3794.JPG */
 .hero-mask-laptop {
-    height: 80vh;
+    height: 85vh;
     background: linear-gradient(rgba(0,45,90,0.75), rgba(0,45,90,0.75)), url('../3794.jpg');
     background-size: cover; background-position: center;
     display: flex; align-items: center; text-align: center; color: #fff;
+    border-bottom: 10px solid var(--gold);
 }
-
-.brand-tag { color: var(--gold); letter-spacing: 3px; font-weight: 700; font-size: 0.9rem; margin-bottom: 15px; }
-.main-title { font-size: 4.5rem; font-weight: 800; line-height: 1; margin-bottom: 20px; }
+.brand-tag { color: var(--gold); letter-spacing: 4px; font-weight: 800; font-size: 0.9rem; margin-bottom: 15px; text-transform: uppercase; }
+.main-title { font-size: 5rem; font-weight: 800; line-height: 0.9; margin-bottom: 20px; letter-spacing: -3px; }
 .main-title span { color: var(--gold); }
-.subtitle { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; }
+.subtitle { font-size: 1.3rem; max-width: 800px; margin: 0 auto 40px; color: #eee; }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.card { background: #fff; padding: 50px; border: 1px solid #ddd; text-align: center; }
-.card.alpha { background: var(--navy); color: #fff; border: 1px solid var(--gold); }
+/* GRID & CARDS */
+.section-label { font-size: 0.9rem; letter-spacing: 5px; color: var(--navy); border-bottom: 4px solid var(--gold); display: inline-block; margin-bottom: 40px; padding-bottom: 5px; font-weight: 800; text-transform: uppercase; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.card { background: #fff; padding: 50px 30px; border: 1px solid #ddd; text-align: center; position: relative; transition: 0.3s; }
+.card.alpha, .card.agg { background: var(--navy); color: #fff; border: 2px solid var(--gold); }
+.price { font-size: 2.5rem; font-weight: 800; margin: 20px 0; color: var(--navy); }
+.alpha .price, .agg .price-sm { color: var(--gold); }
+.price-sm { font-size: 1.8rem; font-weight: 800; margin: 15px 0; }
+.tag { background: var(--gold); color: #000; font-size: 0.7rem; font-weight: 800; padding: 5px 15px; position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); }
 
-.btn-gold { background: var(--gold); color: #000; padding: 18px 40px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; }
-.btn-navy { background: var(--navy); color: #fff; border: 1px solid var(--gold); padding: 15px; width: 100%; cursor: pointer; }
-.btn-outline { border: 2px solid var(--navy); padding: 15px; background: none; font-weight: 800; width: 100%; cursor: pointer; }
-.btn-gold-sm { background: var(--gold); color: #000; padding: 8px 15px; font-weight: 800; text-decoration: none; }
-.btn-outline-white-sm { border: 1px solid #fff; color: #fff; padding: 8px 15px; text-decoration: none; margin-right: 10px; }
+/* BUTTONS */
+.btn-gold { background: var(--gold); color: #000; padding: 18px 40px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; width: 100%; }
+.btn-navy { background: var(--navy); color: #fff; border: 1px solid var(--gold); padding: 15px; width: 100%; cursor: pointer; font-weight: 700; }
+.btn-outline { border: 3px solid var(--navy); padding: 15px; background: none; font-weight: 800; width: 100%; cursor: pointer; text-transform: uppercase; }
+.btn-gold-sm { background: var(--gold); color: #000; padding: 10px 20px; font-weight: 800; text-decoration: none; font-size: 0.8rem; }
+.btn-outline-white-sm { border: 1px solid #fff; color: #fff; padding: 10px 20px; text-decoration: none; font-size: 0.8rem; margin-right: 10px; }
