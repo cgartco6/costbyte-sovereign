@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IdeaForge Store • Checkout (ZAR)</title>
+    <title>CostByte • Checkout (ZAR)</title>
     <link rel="stylesheet" href="assets/sovereign.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">IDEA<span>FORGE</span> STORE</div>
+            <div class="logo">COST<span>BYTE</span></div>
             <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li onclick="window.location.href='index.html'">Continue Shopping</li>
@@ -56,7 +56,6 @@
         };
 
         function renderOrderSummary() {
-            // Uses cart from core/cart.js
             const summary = document.getElementById("order-summary");
             let cart = JSON.parse(localStorage.getItem("cart") || "[]");
             let html = "";
