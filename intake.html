@@ -3,49 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal Forge • Sovereign Intake</title>
+    <title>IdeaForge • AI Startup Validator</title>
     <link rel="stylesheet" href="assets/sovereign.css">
-    <style>
-        .terminal { background: #0a0a0a; color: #0f0; font-family: monospace; padding: 20px; height: 60vh; overflow-y: auto; }
-    </style>
+    <style>.terminal {background:#0a1f3d;color:#ffd700;font-family:monospace;padding:20px;height:65vh;overflow-y:auto;border:3px solid #d4af37;}</style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">SOVEREIGN<span>AGENCY</span></div>
+            <div class="logo">IDEA<span>FORGE</span></div>
             <ul>
-                <li><a href="index.html">Market</a></li>
-                <li><a href="intake.html">Terminal Forge</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="intake.html">Submit Idea</a></li>
+                <li><a href="dashboard.html">My Ideas</a></li>
+                <li onclick="logout()">Logout</li>
             </ul>
         </nav>
     </header>
 
     <div class="forge-container">
-        <h1>Terminal Forge v0.1</h1>
+        <h1>AI STARTUP VALIDATOR TERMINAL</h1>
         <div class="terminal" id="terminal">
-            <p>> Initializing sovereign intake protocol...</p>
-            <p>> Connected to Costbyte node.</p>
-            <br>
-            <p id="log"></p>
+            <p>> Welcome, Founder. Describe your startup idea in plain English.</p>
+            <div id="log"></div>
         </div>
 
         <div class="input-area">
-            <input type="text" id="command" placeholder="Enter command or payload..." onkeypress="if(event.key === 'Enter') processCommand()">
-            <button onclick="processCommand()">Forge</button>
+            <input type="text" id="command" placeholder="Type your idea or answer here..." style="flex:1;">
+            <button onclick="handleInput()">SEND</button>
         </div>
+        <button onclick="generateDocuments()" id="generate-btn" style="display:none;margin-top:1rem;background:#d4af37;color:#0a1f3d;width:100%;">GENERATE FULL DOCUMENT PACKAGE (PDF + ZIP)</button>
     </div>
 
     <script src="core/auth.js"></script>
-    <script>
-        function processCommand() {
-            const cmd = document.getElementById('command').value.trim();
-            if (!cmd) return;
-            const log = document.getElementById('log');
-            log.innerHTML += `<p>> ${cmd}</p><p class="response">✓ Forged. Sovereign session active.</p>`;
-            document.getElementById('terminal').scrollTop = 9999;
-            document.getElementById('command').value = '';
-        }
+    <script src="core/idea.js"></script>
+    <script src="core/generator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
+    <script>
+        window.currentIdea = null;
         window.onload = updateAuthUI;
     </script>
 </body>
