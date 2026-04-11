@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IdeaForge Store • 760 Buyers in 48 Hours (ZAR)</title>
+    <title>CostByte • Launch Faster, Sell Harder (ZAR)</title>
     <link rel="stylesheet" href="assets/sovereign.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">IDEA<span>FORGE</span> STORE</div>
+            <div class="logo">COST<span>BYTE</span></div>
             <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
             <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
@@ -23,7 +23,7 @@
     </header>
 
     <section class="hero">
-        <img src="3794.jpg" alt="IdeaForge Sovereign Hero" class="hero-image">
+        <img src="3794.jpg" alt="CostByte Hero Asset" class="hero-image">
         <div class="hero-overlay">
             <div class="urgency">48 HOURS LEFT — TARGETING 760 IMPULSE BUYERS</div>
             <h1>LAUNCH YOUR STARTUP.<br>GET PAID FAST.</h1>
@@ -43,7 +43,7 @@
     </section>
 
     <footer>
-        <p>IdeaForge Store • Cape Town, South Africa • ZAR Pricing • 2026</p>
+        <p>CostByte • Cape Town, South Africa • ZAR Pricing • 2026</p>
     </footer>
 
     <!-- Cart Modal -->
@@ -61,10 +61,10 @@
     <script src="core/cart.js"></script>
     <script>
         const products = [
-            { id: 1, name: "AI Startup Validation Kit", price: 499, desc: "Full idea validation + documents", img: "https://picsum.photos/id/20/300/300" },
-            { id: 2, name: "Branding & Design Studio Pro", price: 699, desc: "Logo generator + branding kit", img: "https://picsum.photos/id/201/300/300" },
-            { id: 3, name: "Business Plan + Financial Bundle", price: 999, desc: "Complete plans & projections", img: "https://picsum.photos/id/251/300/300" },
-            { id: 4, name: "Complete Sovereign Launch Bundle", price: 1999, desc: "Everything + priority marketing", img: "https://picsum.photos/id/1005/300/300" }
+            { id: 1, name: "AI Startup Validation Kit", price: 499, desc: "Full idea validation + documents" },
+            { id: 2, name: "Branding & Design Studio Pro", price: 699, desc: "Logo generator + branding kit" },
+            { id: 3, name: "Business Plan + Financial Bundle", price: 999, desc: "Complete plans & projections" },
+            { id: 4, name: "Complete Launch Bundle", price: 1999, desc: "Everything + priority marketing" }
         ];
 
         function renderProducts() {
@@ -74,7 +74,6 @@
                 const card = document.createElement('div');
                 card.className = 'item-card';
                 card.innerHTML = `
-                    <img src="\( {p.img}" alt=" \){p.name}" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
                     <h3>${p.name}</h3>
                     <p>${p.desc}</p>
                     <div class="price">R${p.price}</div>
