@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="assets/sovereign.css">
+    <title>Dynamic Dashboard | Sovereign</title>
+</head>
+<body>
+    <div style="display:flex; height:100vh;">
+        <div style="width:250px; background:var(--navy); color:#fff; padding:30px;">
+            <h3>DASHBOARD</h3>
+            <hr style="margin:20px 0; border:1px solid var(--gold);">
+            <p><strong>Role:</strong> <span id="user-role">ADMIN</span></p>
+            <nav style="margin-top:40px; display:flex; flex-direction:column; gap:20px;">
+                <a href="#" style="color:#fff; text-decoration:none;">Active Sprints</a>
+                <a href="#" style="color:#fff; text-decoration:none;">Revenue Logs</a>
+                <a href="#" style="color:#fff; text-decoration:none;">Client List</a>
+            </nav>
+        </div>
+        <div style="flex-grow:1; padding:50px; background:#f9f9f9;">
+            <h2 id="welcome-msg">Production Overview</h2>
+            <div class="grid" style="margin-top:40px;">
+                <div class="card"><h4>Active Nodes</h4><h2 class="price">1,000</h2></div>
+                <div class="card"><h4>Projected Reach</h4><h2 class="price">750k</h2></div>
+                <div class="card"><h4>Revenue Split</h4><h2 class="price">50/50</h2></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
