@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/sovereign.css">
+    <title>Sovereign Intake | Terminal</title>
+</head>
+<body style="background: #000; color: #fff; padding: 40px;">
+    <div class="container" style="max-width: 800px;">
+        <h1 id="status">INITIALIZING PRODUCTION...</h1>
+        <div id="terminal" style="background: #111; border: 1px solid #D4AF37; padding: 20px; height: 400px; font-family: monospace; overflow-y: auto; margin: 20px 0;">
+            > Booting Sovereign OS v3.0...<br>
+        </div>
+        <div id="download-area"></div>
+    </div>
+    <script>
+        const logs = [
+            "> SECURING CONNECTION TO 1,000-NODE SWARM...",
+            "> SENTRY: AUDITING HD POSTERS AND REELS...",
+            "> FIXER: ENFORCING BRAND DNA COMPLIANCE...",
+            "> KATI: ACTIVATING CONVERSION SCRIPTS...",
+            "> LEDGER: SPLITTING REVENUE (50% OWNER / 50% SYSTEM)...",
+            "> SETTLEMENT: PREPARING FNB & AFRICAN BANK TRANSFERS...",
+            "> SUCCESS: PRODUCTION DEPLOYED."
+        ];
+        let i = 0;
+        const terminal = document.getElementById('terminal');
+        const interval = setInterval(() => {
+            if (i < logs.length) { terminal.innerHTML += logs[i++] + "<br>"; }
+            else { 
+                clearInterval(interval); 
+                document.getElementById('status').innerText = "DEPLOYMENT COMPLETE";
+                document.getElementById('download-area').innerHTML = '<button class="btn-gold">DOWNLOAD INDUSTRIAL ASSET BUNDLE</button>';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
