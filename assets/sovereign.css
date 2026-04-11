@@ -6,22 +6,16 @@
     --bg: #0a1f3d;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
     background: var(--bg);
     color: var(--text);
     font-family: system-ui, sans-serif;
-    line-height: 1.6;
 }
 
-/* Header */
 header nav {
-    background: rgba(10, 31, 61, 0.98);
+    background: rgba(10,31,61,0.98);
     padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
@@ -37,12 +31,9 @@ header nav {
     font-weight: 900;
     letter-spacing: 3px;
 }
+.logo span { color: var(--gold); }
 
-.logo span {
-    color: var(--gold);
-}
-
-/* Hamburger Button */
+/* Hamburger */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -51,14 +42,13 @@ header nav {
     border: none;
     cursor: pointer;
     padding: 10px;
-    z-index: 1100;
 }
 
 .hamburger span {
     width: 30px;
     height: 3px;
     background: var(--gold);
-    transition: all 0.3s ease;
+    transition: all 0.3s;
 }
 
 /* Navigation Menu */
@@ -67,43 +57,26 @@ header nav {
     gap: 2rem;
     list-style: none;
     align-items: center;
-    margin: 0;
 }
 
 #nav-menu a {
     color: inherit;
     text-decoration: none;
-    font-weight: 500;
 }
 
-#nav-menu a:hover {
-    color: var(--gold);
-}
+#nav-menu a:hover { color: var(--gold); }
 
 /* Hero */
-.hero {
-    position: relative;
-    height: 70vh;
-    overflow: hidden;
-}
-
-.hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.7);
-}
+.hero { position: relative; height: 70vh; overflow: hidden; }
+.hero-image { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); }
 
 .hero-overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
     text-shadow: 0 4px 20px rgba(0,0,0,0.8);
-    width: 90%;
-    max-width: 800px;
 }
 
 .urgency {
@@ -143,12 +116,8 @@ header nav {
     border-bottom: 3px solid var(--gold);
 }
 
-/* Tiers Section */
-.marketplace {
-    padding: 5%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
+/* Tiers */
+.marketplace { padding: 5%; max-width: 1400px; margin: 0 auto; }
 
 .grid {
     display: grid;
@@ -165,16 +134,9 @@ header nav {
     border-radius: 8px;
 }
 
-.item-card:hover {
-    transform: translateY(-12px);
-}
+.item-card:hover { transform: translateY(-12px); }
 
-.price {
-    font-size: 2rem;
-    color: var(--gold);
-    margin: 1.5rem 0;
-    font-weight: bold;
-}
+.price { font-size: 2rem; color: var(--gold); margin: 1.5rem 0; font-weight: bold; }
 
 /* Cart Modal */
 .modal {
@@ -197,22 +159,14 @@ header nav {
     border-radius: 8px;
 }
 
-.total {
-    font-size: 1.5rem;
-    margin: 1.5rem 0;
-    color: var(--gold);
-}
+.total { font-size: 1.5rem; margin: 1.5rem 0; color: var(--gold); }
 
 /* Animations */
-@keyframes flash {
-    50% { opacity: 0.4; }
-}
+@keyframes flash { 50% { opacity: 0.4; } }
 
-/* RESPONSIVE HAMBURGER - FIXED */
+/* RESPONSIVE HAMBURGER - FIXED VERSION */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
+    .hamburger { display: flex; }
 
     #nav-menu {
         display: none;
