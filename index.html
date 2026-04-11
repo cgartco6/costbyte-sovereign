@@ -3,45 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IdeaForge Sovereign • Free Startup Platform</title>
+    <title>IdeaForge Store • Startup Launch Products (ZAR)</title>
     <link rel="stylesheet" href="assets/sovereign.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">IDEA<span>FORGE</span></div>
-            <ul>
+            <div class="logo">IDEA<span>FORGE</span> STORE</div>
+            
+            <!-- Hamburger -->
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="intake.html">Submit Idea</a></li>
-                <li><a href="studio.html">Design & Marketing Studio</a></li>
-                <li><a href="dashboard.html">My Ideas</a></li>
-                <li><a href="login.html">Login / Register</a></li>
-                <li id="auth-status">Guest</li>
+                <li><a href="studio.html">Studio</a></li>
+                <li><a href="dashboard.html">My Orders</a></li>
+                <li><a href="login.html">Account</a></li>
+                <li onclick="showCart()" style="cursor:pointer;display:flex;align-items:center;gap:5px;">
+                    Cart <span id="cart-count" style="background:#d4af37;color:#0a1f3d;padding:2px 8px;border-radius:50%;font-size:0.9rem;">0</span>
+                </li>
             </ul>
         </nav>
     </header>
 
     <section class="hero">
-        <img src="3794.jpg" alt="IdeaForge Hero" class="hero-image">
+        <img src="https://picsum.photos/id/1015/1920/1080" alt="Real Startup Launch Hero - Business Professionals" class="hero-image">
         <div class="hero-overlay">
-            <h1>Launch Your Startup in Minutes</h1>
-            <p>Free AI validation • Real Design + Branding + Marketing Studio • Full documents (PDF + ZIP)</p>
-            <button onclick="window.location.href='intake.html'" style="font-size:1.4rem;padding:1.3rem 3.5rem;">Start Free →</button>
+            <h1>Launch Your Startup in ZAR</h1>
+            <p>AI validation • Professional branding • Full business + legal documents • Instant delivery</p>
+            <button onclick="window.location.href='#shop'" class="cta-btn">Shop Startup Kits →</button>
         </div>
     </section>
 
-    <section style="padding:5%;text-align:center;background:#112a4f;">
-        <h2>Now with Professional Studio Tools</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1200px;margin:3rem auto;">
-            <div class="item-card"><h3>Design Studio</h3><p>Instant logo generator</p></div>
-            <div class="item-card"><h3>Branding Studio</h3><p>Color palettes + guidelines PDF</p></div>
-            <div class="item-card"><h3>Marketing Studio</h3><p>Pitch deck + go-to-market plan</p></div>
-        </div>
+    <section id="shop" class="marketplace">
+        <h2>Featured Startup Products</h2>
+        <div class="grid" id="products-grid"></div>
     </section>
 
-    <footer><p>IdeaForge Sovereign • Free forever for founders • 2026</p></footer>
+    <footer>
+        <p>IdeaForge Store • Cape Town, South Africa • Prices in ZAR • 2026</p>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <h2>Your Cart (<span id="modal-cart-count">0</span>)</h2>
+            <div id="cart-items"></div>
+            <div class="total">Total: <strong id="cart-total">R0.00</strong></div>
+            <button onclick="goToCheckout()" class="cta-btn" style="width:100%;margin-top:1rem;">Proceed to Checkout</button>
+            <button onclick="hideCart()" style="background:none;border:1px solid #d4af37;color:#d4af37;margin-top:0.5rem;width:100%;">Close</button>
+        </div>
+    </div>
 
     <script src="core/auth.js"></script>
-    <script>window.onload = updateAuthUI;</script>
+    <script src="core/cart.js"></script>
+    <script>
+        // Sample products in ZAR
+        const products = [
+            { id: 1, name: "AI Startup Validation Kit", price: 499, desc: "Idea validation + full documents", img: "https://picsum.photos/id/20/300/300" },
+            { id: 2, name: "Branding & Design Studio Pro", price: 699, desc: "Logo generator + full branding kit", img: "https://picsum.photos/id/201/300/300" },
+            { id: 3, name: "Business Plan + Financial Bundle", price: 999, desc: "Complete plans + projections", img: "https://picsum.photos/id/251/300/300" },
+            { id: 4, name: "Complete Sovereign Launch Bundle", price: 1999, desc: "Everything + pitch deck & priority access", img: "https://picsum.photos/id/1005/300/300" }
+        ];
+
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'item-card';
+                card.innerHTML = `
+                    <img src="\( {p.img}" alt=" \){p.name}" style="width:100%;height:200px;object-fit:cover;border-radius:8px;">
+                    <h3>${p.name}</h3>
+                    <p>${p.desc}</p>
+                    <div class="price">R${p.price}</div>
+                    <button onclick="addToCart(\( {p.id}, ' \){p.name}', ${p.price})" class="cta-btn">Add to Cart</button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        window.onload = () => {
+            updateAuthUI();
+            renderProducts();
+            updateCartCount();
+        };
+    </script>
 </body>
 </html>
