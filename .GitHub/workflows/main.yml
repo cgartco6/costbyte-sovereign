@@ -1,29 +1,15 @@
-name: Sovereign CI/CD Pipeline
+name: Deploy IdeaForge Store
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
-      - name: Validate HTML & CSS
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - run: npm install -g htmlhint stylelint
-      - run: htmlhint "**/*.html"
-      - run: stylelint "assets/**/*.css"
-
-      - name: Deploy to GitHub Pages (optional)
-        if: github.ref == 'refs/heads/main'
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
