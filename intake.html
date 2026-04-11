@@ -5,28 +5,27 @@
     <title>Sovereign Terminal | Production</title>
 </head>
 <body style="background:#000; color:#fff; padding:50px; font-family:monospace;">
-    <div class="container" style="max-width:800px;">
-        <h1 id="title" style="color:var(--gold); border-bottom:1px solid var(--gold); padding-bottom:10px;">INITIALIZING PRODUCTION ENGINE...</h1>
-        <div id="term" style="padding:20px; height:450px; overflow-y:auto; color:#0f0; margin:20px 0; background:#0a0a0a; line-height:1.6; font-size:0.9rem;"></div>
+    <div class="container">
+        <h1 id="title" style="color:var(--gold);">PRODUCTION ENGINE ONLINE</h1>
+        <div id="term" style="padding:20px; height:450px; overflow-y:auto; color:#0f0; margin:20px 0; background:#0a0a0a; border:1px solid var(--gold);"></div>
         <div id="result" style="display:none; text-align:center;">
             <button class="btn-gold" style="width:auto; padding:20px 50px;">DOWNLOAD INDUSTRIAL BUNDLE</button>
         </div>
     </div>
     <script>
         const logs = [
-            "> AUTHENTICATING OWNER SETTLEMENT LOGS...",
-            "> SYNCING WITH FNB AND AFRICAN BANK ACCOUNTS...",
-            "> CONNECTING TO 1,000-NODE MARKETING SWARM...",
-            "> SENTRY AUDIT: CHECKING BRAND DNA COMPLIANCE...",
-            "> KATI_AGENT: ONLINE. SALES OPTIMIZATION ACTIVE.",
-            "> FORGE: GENERATING HD REELS AND POSTERS...",
-            "> REVENUE LEDGER: 50/50 SPLIT RATIO SECURED.",
-            "> SUCCESS: PRODUCTION DEPLOYED. TARGETING 750 BUYERS."
+            "> SYNCING WITH FNB ACCOUNT...",
+            "> SYNCING WITH AFRICAN BANK ACCOUNT...",
+            "> AUTHENTICATING 50/50 REVENUE SPLIT...",
+            "> CONNECTING 1,000-NODE MARKETING SWARM...",
+            "> SENTRY AUDIT: HD MEDIA COMPLIANCE CHECK...",
+            "> FORGING INDUSTRIAL BRAND ASSETS...",
+            "> SUCCESS: SPRINT ACTIVE."
         ];
         let i = 0;
         const term = document.getElementById('term');
         const interval = setInterval(() => {
-            if(i < logs.length) { term.innerHTML += logs[i++] + "<br>"; term.scrollTop = term.scrollHeight; }
+            if(i < logs.length) { term.innerHTML += logs[i++] + "<br>"; }
             else { 
                 clearInterval(interval); 
                 document.getElementById('title').innerText = "PRODUCTION COMPLETE";
