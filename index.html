@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IdeaForge Sovereign • Free Startup Launcher</title>
+    <title>IdeaForge Sovereign • Free Startup Platform</title>
     <link rel="stylesheet" href="assets/sovereign.css">
 </head>
 <body>
@@ -13,6 +13,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="intake.html">Submit Idea</a></li>
+                <li><a href="studio.html">Design & Marketing Studio</a></li>
                 <li><a href="dashboard.html">My Ideas</a></li>
                 <li><a href="login.html">Login / Register</a></li>
                 <li id="auth-status">Guest</li>
@@ -23,27 +24,24 @@
     <section class="hero">
         <img src="3794.jpg" alt="IdeaForge Hero" class="hero-image">
         <div class="hero-overlay">
-            <h1>Turn Your Idea Into a Real Startup</h1>
-            <p>Free registration • AI validation • Full business plan, financials &amp; legal docs in seconds</p>
-            <button onclick="window.location.href='intake.html'" style="font-size:1.3rem;padding:1.2rem 3rem;">Submit Your Idea Now (Free)</button>
+            <h1>Launch Your Startup in Minutes</h1>
+            <p>Free AI validation • Real Design + Branding + Marketing Studio • Full documents (PDF + ZIP)</p>
+            <button onclick="window.location.href='intake.html'" style="font-size:1.4rem;padding:1.3rem 3.5rem;">Start Free →</button>
         </div>
     </section>
 
-    <section class="marketplace" style="padding:5%;text-align:center;">
-        <h2 style="margin-bottom:2rem;">How It Works</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1200px;margin:0 auto;">
-            <div class="item-card"><h3>1. Register (Free)</h3><p>One-click persistent login</p></div>
-            <div class="item-card"><h3>2. Describe Your Idea</h3><p>Plain English — no forms</p></div>
-            <div class="item-card"><h3>3. AI Validation</h3><p>Smart questions + research simulation</p></div>
-            <div class="item-card"><h3>4. Get Documents</h3><p>Business Plan + Financials + Legals (PDF + ZIP)</p></div>
+    <section style="padding:5%;text-align:center;background:#112a4f;">
+        <h2>Now with Professional Studio Tools</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1200px;margin:3rem auto;">
+            <div class="item-card"><h3>Design Studio</h3><p>Instant logo generator</p></div>
+            <div class="item-card"><h3>Branding Studio</h3><p>Color palettes + guidelines PDF</p></div>
+            <div class="item-card"><h3>Marketing Studio</h3><p>Pitch deck + go-to-market plan</p></div>
         </div>
     </section>
 
-    <footer><p>IdeaForge Sovereign • Free for every founder • 2026</p></footer>
+    <footer><p>IdeaForge Sovereign • Free forever for founders • 2026</p></footer>
 
     <script src="core/auth.js"></script>
-    <script>
-        window.onload = updateAuthUI;
-    </script>
+    <script>window.onload = updateAuthUI;</script>
 </body>
 </html>
