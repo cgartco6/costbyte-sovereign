@@ -1,0 +1,15 @@
+:root { --navy: #001F3F; --gold: #D4AF37; --white: #FFFFFF; }
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+body { background: #f8f9fa; color: #111; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.shop-nav { background: var(--navy); padding: 20px 0; color: #fff; }
+.hero-mask { background: var(--navy); color: #fff; padding: 100px 0; text-align: center; }
+.main-title { font-size: 4rem; font-weight: 800; }
+.main-title span { color: var(--gold); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.card { background: #fff; padding: 40px; border: 1px solid #eee; text-align: center; }
+.card.alpha { background: var(--navy); color: #fff; border: 1px solid var(--gold); }
+.btn-gold { background: var(--gold); color: #fff; padding: 15px 30px; border: none; font-weight: 800; cursor: pointer; }
+.btn-navy { background: var(--navy); color: #fff; padding: 15px 30px; border: 1px solid var(--gold); cursor: pointer; }
+.price { font-size: 2.5rem; margin: 20px 0; }
+.tag { color: var(--gold); border: 1px solid var(--gold); padding: 5px; font-size: 0.7rem; }
