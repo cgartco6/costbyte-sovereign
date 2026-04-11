@@ -66,7 +66,6 @@
                 name: "Free Tier", 
                 price: 0, 
                 desc: "Basic validation + limited studio access (3 documents/month)", 
-                limited: true,
                 buttonText: "Start Free",
                 action: () => window.location.href = 'studio.html'
             },
@@ -75,7 +74,6 @@
                 name: "Limited Tier", 
                 price: 499, 
                 desc: "Full validation + branding studio + 10 documents + basic marketing", 
-                limited: false,
                 buttonText: "Secure Your Place (R499)",
                 action: () => addToCart(2, "Limited Tier", 499)
             },
@@ -84,7 +82,6 @@
                 name: "Complete Launch Tier", 
                 price: 999, 
                 desc: "Everything + priority marketing engine + unlimited documents", 
-                limited: false,
                 buttonText: "Secure Your Place (R999)",
                 action: () => addToCart(3, "Complete Launch Tier", 999)
             }
@@ -100,10 +97,10 @@
                     <h3>${t.name}</h3>
                     <p>${t.desc}</p>
                     <div class="price">${t.price === 0 ? 'Free' : 'R' + t.price}</div>
-                    <button onclick="\( {t.limited ? 'window.location.href=\'studio.html\'' : `addToCart( \){t.id}, '${t.name}', ${t.price})`}" class="cta-btn">
+                    <button onclick="\( {t.price === 0 ? `window.location.href='studio.html'` : `addToCart( \){t.id}, '${t.name}', ${t.price})`}" class="cta-btn">
                         ${t.buttonText}
                     </button>
-                    ${t.price === 0 ? '<small style="color:#aaa;">Limited access • Upgrade anytime</small>' : ''}
+                    ${t.price === 0 ? '<small style="color:#aaa;display:block;margin-top:10px;">Limited access • Upgrade anytime</small>' : ''}
                 `;
                 grid.appendChild(card);
             });
