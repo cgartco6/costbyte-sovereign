@@ -1,0 +1,30 @@
+name: Sovereign CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate HTML & CSS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm install -g htmlhint stylelint
+      - run: htmlhint "**/*.html"
+      - run: stylelint "assets/**/*.css"
+
+      - name: Deploy to GitHub Pages (optional)
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
