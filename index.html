@@ -3,50 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/sovereign.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <title>CostByte Sovereign | Industrial Production</title>
+    <style>
+        :root { --navy: #002D5A; --gold: #FFC107; --white: #FFFFFF; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background: #f9f9f9; color: #111; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* NAVBAR */
+        .shop-nav { background: var(--navy); padding: 20px 0; color: #fff; border-bottom: 2px solid var(--gold); }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; letter-spacing: 2px; text-decoration: none; color: #fff; font-size: 1.2rem; }
+
+        /* HERO MASK - USING CLEAN ASSET 3794.JPG */
+        .hero-mask-laptop {
+            height: 80vh;
+            background: linear-gradient(rgba(0,45,90,0.75), rgba(0,45,90,0.75)), url('3794.jpg');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; text-align: center; color: #fff;
+        }
+
+        .main-title { font-size: 4.5rem; font-weight: 800; line-height: 1; margin-bottom: 20px; }
+        .main-title span { color: var(--gold); }
+        .btn-gold { background: var(--gold); color: #000; padding: 18px 40px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; }
+
+        /* PRODUCTION GRID */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 80px 0; }
+        .card { background: #fff; padding: 50px; border: 1px solid #ddd; text-align: center; }
+        .card.alpha { background: var(--navy); color: #fff; border: 1px solid var(--gold); }
+    </style>
 </head>
 <body>
     <nav class="shop-nav">
         <div class="container nav-flex">
-            <a href="index.html" class="logo">COSTBYTE SOVEREIGN</a>
+            <a href="#" class="logo">COSTBYTE SOVEREIGN</a>
             <div class="nav-links">
-                <a href="login.html" class="btn-outline-white-sm">CLIENT LOGIN</a>
-                <a href="cart.html" class="btn-gold-sm">CART</a>
+                <a href="#" style="color:#fff; text-decoration:none; margin-right:20px;">CLIENT LOGIN</a>
+                <a href="#" style="background:var(--gold); color:#000; padding:8px 15px; text-decoration:none; font-weight:800;">CART (0)</a>
             </div>
         </div>
     </nav>
 
     <header class="hero-mask-laptop">
         <div class="container">
-            <p class="brand-tag">HIGH-ENTERPRISE DESIGN & AGENCY BRANDING</p>
+            <p style="color:var(--gold); letter-spacing:3px; font-weight:700;">HIGH-CONVERSION DESIGN</p>
             <h1 class="main-title">Real Results. <span>Real Cash</span>.</h1>
-            <p class="subtitle">Deploying high-conversion marketing ecosystems. From $0 Incubator to 1,000-node Aggressive Engine.</p>
-            <div class="hero-actions">
-                <a href="intake.html" class="btn-gold">START PRODUCTION</a>
-            </div>
+            <p style="font-size:1.2rem; margin-bottom:30px;">Deploying 1,000-node marketing ecosystems. We don't simulate—we deploy.</p>
+            <a href="intake.html" class="btn-gold">START PRODUCTION</a>
         </div>
     </header>
 
-    <div class="container" style="padding: 80px 0;">
-        <h2 class="section-label">PRODUCTION TIERS</h2>
+    <div class="container">
         <div class="grid">
-            <div class="card incubator">
-                <div class="tag">FREE</div>
-                <h3>INCUBATOR</h3>
-                <h2 class="price">R0.00</h2>
-                <button onclick="window.location.href='intake.html'" class="btn-outline">ACTIVATE</button>
-            </div>
             <div class="card">
-                <h3>BRONZE</h3>
-                <h2 class="price">R300.00</h2>
-                <button class="btn-navy">ADD TO CART</button>
+                <h3>INCUBATOR</h3>
+                <h2 style="margin:20px 0;">R0.00</h2>
+                <a href="intake.html" style="display:block; border:2px solid var(--navy); padding:15px; color:var(--navy); text-decoration:none; font-weight:800;">ACTIVATE FREE TIER</a>
             </div>
             <div class="card alpha">
                 <h3>PLATINUM</h3>
-                <h2 class="price">R1,500.00</h2>
-                <button class="btn-gold">ADD TO CART</button>
+                <h2 style="margin:20px 0; color:var(--gold);">R1,500.00</h2>
+                <button class="btn-gold" style="width:100%;">ADD TO CART</button>
             </div>
         </div>
     </div>
