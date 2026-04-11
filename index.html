@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CostByte • Launch Faster, Sell Harder (ZAR)</title>
+    <title>CostByte • Launch Your Startup (ZAR)</title>
     <link rel="stylesheet" href="assets/sovereign.css">
 </head>
 <body>
@@ -14,8 +14,8 @@
             <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="studio.html">Studio</a></li>
-                <li><a href="marketing.html">Marketing Engine 🔥</a></li>
-                <li><a href="dashboard.html">My Orders</a></li>
+                <li><a href="marketing.html">Marketing Engine</a></li>
+                <li><a href="dashboard.html">My Dashboard</a></li>
                 <li><a href="login.html">Account</a></li>
                 <li onclick="showCart()" style="cursor:pointer;">Cart (<span id="cart-count">0</span>)</li>
             </ul>
@@ -27,19 +27,19 @@
         <div class="hero-overlay">
             <div class="urgency">ONLY 760 PLACES LEFT THIS PHASE</div>
             <h1>LAUNCH YOUR STARTUP.<br>GET PAID FAST.</h1>
-            <p class="impulse">AI Validation • Real Branding Studio • Aggressive Marketing Engine</p>
-            <button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})" class="cta-btn pulse">SECURE YOUR PLACE NOW →</button>
+            <p class="impulse">Free tier available • Limited paid access • Aggressive Marketing Engine</p>
+            <button onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})" class="cta-btn pulse">CHOOSE YOUR TIER →</button>
         </div>
     </section>
 
     <div class="impulse-bar">
-        <span>🎯 TARGET SPECIALIST LIVE • Only 760 places left in this phase</span>
-        <span onclick="window.location.href='marketing.html'" style="cursor:pointer;color:#ffd700;">→ ACTIVATE FULL MARKETING ENGINE</span>
+        <span>🎯 Only 760 places left this phase • Secure your spot before it's gone</span>
+        <span onclick="window.location.href='marketing.html'" style="cursor:pointer;color:#ffd700;">→ ACTIVATE MARKETING ENGINE</span>
     </div>
 
-    <section id="shop" class="marketplace">
-        <h2>HOT RIGHT NOW — LIMITED PLACES AVAILABLE</h2>
-        <div class="grid" id="products-grid"></div>
+    <section id="pricing" class="marketplace">
+        <h2>Choose Your Tier</h2>
+        <div class="grid" id="tiers-grid"></div>
     </section>
 
     <footer>
@@ -60,24 +60,50 @@
     <script src="core/auth.js"></script>
     <script src="core/cart.js"></script>
     <script>
-        const products = [
-            { id: 1, name: "AI Startup Validation Kit", price: 499, desc: "Full idea validation + documents" },
-            { id: 2, name: "Branding & Design Studio Pro", price: 699, desc: "Logo generator + branding kit" },
-            { id: 3, name: "Business Plan + Financial Bundle", price: 999, desc: "Complete plans & projections" },
-            { id: 4, name: "Complete Launch Bundle", price: 1999, desc: "Everything + priority marketing" }
+        const tiers = [
+            { 
+                id: 1, 
+                name: "Free Tier", 
+                price: 0, 
+                desc: "Basic validation + limited studio access (3 documents/month)", 
+                limited: true,
+                buttonText: "Start Free",
+                action: () => window.location.href = 'studio.html'
+            },
+            { 
+                id: 2, 
+                name: "Limited Tier", 
+                price: 499, 
+                desc: "Full validation + branding studio + 10 documents + basic marketing", 
+                limited: false,
+                buttonText: "Secure Your Place (R499)",
+                action: () => addToCart(2, "Limited Tier", 499)
+            },
+            { 
+                id: 3, 
+                name: "Complete Launch Tier", 
+                price: 999, 
+                desc: "Everything + priority marketing engine + unlimited documents", 
+                limited: false,
+                buttonText: "Secure Your Place (R999)",
+                action: () => addToCart(3, "Complete Launch Tier", 999)
+            }
         ];
 
-        function renderProducts() {
-            const grid = document.getElementById('products-grid');
+        function renderTiers() {
+            const grid = document.getElementById('tiers-grid');
             grid.innerHTML = '';
-            products.forEach(p => {
+            tiers.forEach(t => {
                 const card = document.createElement('div');
                 card.className = 'item-card';
                 card.innerHTML = `
-                    <h3>${p.name}</h3>
-                    <p>${p.desc}</p>
-                    <div class="price">R${p.price}</div>
-                    <button onclick="addToCart(\( {p.id}, ' \){p.name}', ${p.price})" class="cta-btn">Secure Your Place</button>
+                    <h3>${t.name}</h3>
+                    <p>${t.desc}</p>
+                    <div class="price">${t.price === 0 ? 'Free' : 'R' + t.price}</div>
+                    <button onclick="\( {t.limited ? 'window.location.href=\'studio.html\'' : `addToCart( \){t.id}, '${t.name}', ${t.price})`}" class="cta-btn">
+                        ${t.buttonText}
+                    </button>
+                    ${t.price === 0 ? '<small style="color:#aaa;">Limited access • Upgrade anytime</small>' : ''}
                 `;
                 grid.appendChild(card);
             });
@@ -89,7 +115,7 @@
 
         window.onload = () => {
             updateAuthUI();
-            renderProducts();
+            renderTiers();
             updateCartCount();
         };
     </script>
