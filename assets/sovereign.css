@@ -9,32 +9,40 @@
 body { background: #f4f4f4; color: var(--dark); line-height: 1.6; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-.shop-nav { background: var(--navy); padding: 20px 0; color: #fff; position: sticky; top: 0; z-index: 100; }
+.shop-nav { background: var(--navy); padding: 20px 0; color: #fff; position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--gold); }
 .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-weight: 800; letter-spacing: 2px; color: #fff; text-decoration: none; }
+.logo { font-weight: 800; letter-spacing: 2px; color: #fff; text-decoration: none; font-size: 1.2rem; }
 
 .hero-mask {
-    height: 75vh;
+    height: 80vh;
     background: linear-gradient(rgba(0,45,90,0.85), rgba(0,45,90,0.85)), url('../3785.jpg');
     background-size: cover; background-position: center;
     display: flex; align-items: center; color: #fff; text-align: center;
     border-bottom: 5px solid var(--gold);
 }
 
-.main-title { font-size: 4.5rem; font-weight: 800; letter-spacing: -2px; }
+.main-title { font-size: 4.5rem; font-weight: 800; letter-spacing: -2px; line-height: 1; }
 .main-title span { color: var(--gold); }
 .brand-tag { color: var(--gold); letter-spacing: 5px; font-weight: 800; font-size: 0.8rem; margin-bottom: 10px; }
+.subtitle { max-width: 700px; margin: 20px auto; color: #ccc; }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.card { background: #fff; padding: 40px; border: 1px solid #ddd; text-align: center; transition: 0.3s; }
-.card:hover { border-color: var(--gold); transform: translateY(-5px); }
+.section-label { font-size: 0.8rem; letter-spacing: 6px; color: var(--navy); border-bottom: 3px solid var(--gold); display: inline-block; margin-bottom: 40px; padding-bottom: 5px; text-transform: uppercase; font-weight: 800; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.card { background: #fff; padding: 40px; border: 1px solid #ddd; text-align: center; transition: 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; }
+.card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 .card.alpha { background: var(--navy); color: #fff; border: 1px solid var(--gold); }
 
-.price { font-size: 3rem; font-weight: 800; margin: 20px 0; color: var(--navy); }
+.price { font-size: 2.8rem; font-weight: 800; margin: 20px 0; color: var(--navy); }
+.price-sm { font-size: 1.8rem; font-weight: 800; margin: 15px 0; color: var(--navy); }
 .alpha .price { color: var(--gold); }
-.features { list-style: none; padding: 0; margin-bottom: 30px; font-size: 0.9rem; }
+.tag { background: var(--gold); color: #000; font-size: 0.7rem; font-weight: 800; padding: 5px 10px; display: inline-block; margin-bottom: 15px; }
 
-.btn-gold { background: var(--gold); color: #000; padding: 18px 35px; border: none; font-weight: 800; cursor: pointer; text-transform: uppercase; width: 100%; }
+.features { list-style: none; padding: 0; margin-bottom: 30px; font-size: 0.9rem; text-align: left; }
+.features li { padding: 5px 0; border-bottom: 1px solid #f0f0f0; }
+
+.btn-gold { background: var(--gold); color: #000; padding: 18px 35px; border: none; font-weight: 800; cursor: pointer; text-transform: uppercase; width: 100%; transition: 0.2s; }
+.btn-gold:hover { background: #fff; }
 .btn-navy { background: var(--navy); color: #fff; padding: 18px 35px; border: 1px solid var(--gold); cursor: pointer; width: 100%; }
 .btn-outline { border: 2px solid var(--navy); padding: 18px 35px; background: none; font-weight: 800; cursor: pointer; width: 100%; }
 .btn-navy-sm { background: #fff; color: var(--navy); padding: 8px 15px; text-decoration: none; font-weight: 800; font-size: 0.8rem; }
