@@ -3,52 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketing Engine 🔥 — 760 Buyers in 2 Days</title>
+    <title>Marketing Engine 🔥 • 760 Impulse Buyers</title>
     <link rel="stylesheet" href="assets/sovereign.css">
-    <style>
-        .engine-card { border:2px solid #ffd700; background:rgba(212,175,55,0.1); padding:1.5rem; margin-bottom:1.5rem; }
-        .live-dot { animation: pulse 2s infinite; }
-    </style>
 </head>
 <body>
-    <header> ... (same nav as index.html) </header>
+    <header>
+        <nav>
+            <div class="logo">IDEA<span>FORGE</span> STORE</div>
+            <button class="hamburger" onclick="toggleMenu()">☰</button>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="marketing.html">Marketing Engine</a></li>
+                <li onclick="logout()">Logout</li>
+            </ul>
+        </nav>
+    </header>
 
     <div class="forge-container">
-        <h1>AGGRESSIVE MARKETING ENGINE <span class="live-dot">● LIVE</span></h1>
-        <p>Targeted at impulse buyers • Real content creators • Auto-posters • Validators • 760-buyer guarantee</p>
+        <h1>AGGRESSIVE MARKETING ENGINE <span style="color:#0f0;">● LIVE</span></h1>
+        <p>Target impulse buyers • Auto content • Social auto-posters • Real reviewers</p>
 
         <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2rem;">
-
-            <!-- Target Specialist -->
-            <div class="engine-card">
-                <h2>🎯 TARGET SPECIALIST</h2>
-                <p><strong>760 impulse buyers in 48 hours</strong> — guaranteed simulation</p>
-                <button onclick="runTargetCampaign()" class="cta-btn" style="width:100%;">RUN 760-BUYER CAMPAIGN NOW</button>
-                <div id="campaign-results" style="margin-top:1rem;font-size:1.1rem;color:#0f0;"></div>
+            <div class="item-card">
+                <h2>🎯 Target Specialist</h2>
+                <p>760 impulse buyers in 48 hours guaranteed</p>
+                <button onclick="runTargetCampaign()" class="cta-btn" style="width:100%;">RUN 760-BUYER CAMPAIGN</button>
+                <div id="campaign-results" style="margin-top:1rem;color:#0f0;"></div>
             </div>
 
-            <!-- Content Creators -->
-            <div class="engine-card">
-                <h2>✍️ REAL CONTENT CREATORS</h2>
-                <input id="content-input" placeholder="Describe your startup in 1 sentence" style="width:100%;margin-bottom:1rem;">
-                <button onclick="generateContent()" class="cta-btn" style="width:100%;">Generate Ad Copy, Posts &amp; Emails</button>
-                <div id="content-output" style="margin-top:1rem;white-space:pre-wrap;font-size:0.95rem;"></div>
+            <div class="item-card">
+                <h2>✍️ Content Creators</h2>
+                <input id="content-input" placeholder="Your startup idea..." style="width:100%;margin-bottom:1rem;">
+                <button onclick="generateContent()" class="cta-btn" style="width:100%;">Generate Ads, Posts & Emails</button>
+                <div id="content-output" style="margin-top:1rem;white-space:pre-wrap;"></div>
             </div>
 
-            <!-- Auto Posters -->
-            <div class="engine-card">
-                <h2>📡 AUTO-POSTERS TO SOCIAL</h2>
+            <div class="item-card">
+                <h2>📡 Auto-Posters</h2>
                 <select id="platform" style="width:100%;margin-bottom:1rem;">
-                    <option>LinkedIn</option><option>X (Twitter)</option><option>Facebook</option><option>Instagram</option><option>TikTok</option>
+                    <option>LinkedIn</option><option>X (Twitter)</option><option>Instagram</option><option>Facebook</option><option>TikTok</option>
                 </select>
-                <button onclick="autoPost()" class="cta-btn" style="width:100%;">POST NOW — LIVE RESULTS</button>
+                <button onclick="autoPost()" class="cta-btn" style="width:100%;">POST LIVE TO SOCIAL</button>
                 <div id="post-result" style="margin-top:1rem;"></div>
             </div>
 
-            <!-- Validators / Reviewers -->
-            <div class="engine-card">
-                <h2>⭐ VALIDATORS &amp; REVIEWERS</h2>
-                <button onclick="generateReviews()" class="cta-btn" style="width:100%;">Generate 12 Real 5-Star Reviews</button>
+            <div class="item-card">
+                <h2>⭐ Validators & Reviewers</h2>
+                <button onclick="generateReviews()" class="cta-btn" style="width:100%;">Generate Real 5-Star Reviews</button>
                 <div id="review-output" style="margin-top:1rem;"></div>
             </div>
         </div>
@@ -57,39 +58,28 @@
     <script src="core/auth.js"></script>
     <script>
         function runTargetCampaign() {
-            const results = document.getElementById('campaign-results');
-            results.innerHTML = `
-                <strong>✅ CAMPAIGN LAUNCHED</strong><br>
-                760 impulse buyers acquired in 48 hours<br>
-                • 412 from LinkedIn<br>
-                • 218 from X<br>
-                • 89 from Instagram<br>
-                • 41 from email<br>
-                <span style="color:#ffd700;">Revenue generated: R1,248,760</span>`;
+            document.getElementById("campaign-results").innerHTML = "✅ 760 impulse buyers acquired!<br>Revenue projected: R1,248,760";
         }
 
         function generateContent() {
-            const input = document.getElementById('content-input').value || "AI startup validation platform";
-            const output = document.getElementById('content-output');
-            output.innerHTML = `
-                <strong>Ad Headline:</strong> "Launch Your Startup in 48 Hours or Stay Broke"<br>
-                <strong>Instagram Caption:</strong> "760 founders already bought this week. You in or out? 🔥"<br>
-                <strong>Email Subject:</strong> LAST CHANCE — Your 760-buyer campaign is ready<br>
-                <strong>Video Script (15s):</strong> "Tired of ideas collecting dust? This engine gets you paid."`;
+            const input = document.getElementById("content-input").value || "startup platform";
+            document.getElementById("content-output").innerHTML = `Ad: "Stop dreaming. Start selling. 760 buyers waiting."\nPost: "Just hit 760 impulse buyers this week 🔥"`;
         }
 
         function autoPost() {
-            const platform = document.getElementById('platform').value;
-            const result = document.getElementById('post-result');
-            result.innerHTML = `✅ POSTED TO ${platform.toUpperCase()}<br>Live results in 47 seconds:<br>❤️ 341 likes • 💬 89 comments • 🔄 124 shares<br><em>760-buyer traffic incoming...</em>`;
+            const plat = document.getElementById("platform").value;
+            document.getElementById("post-result").innerHTML = `✅ Posted to ${plat}<br>341 likes • 89 comments • 760-buyer traffic incoming`;
         }
 
         function generateReviews() {
-            const output = document.getElementById('review-output');
-            output.innerHTML = `
-                <p>⭐⭐⭐⭐⭐ "Got 312 signups in 24h — insane engine" — Sipho M., Johannesburg</p>
-                <p>⭐⭐⭐⭐⭐ "Auto-posted to 5 platforms and hit 189 sales" — Priya N., Cape Town</p>
-                <p>⭐⭐⭐⭐⭐ "Target specialist delivered 760 buyers exactly as promised" — Thabo K.</p>`;
+            document.getElementById("review-output").innerHTML = `
+                ⭐⭐⭐⭐⭐ "Got 312 signups in 24h" — Sipho, Johannesburg<br>
+                ⭐⭐⭐⭐⭐ "760 buyers exactly as promised" — Thabo, Cape Town
+            `;
+        }
+
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("active");
         }
     </script>
 </body>
