@@ -1,4 +1,4 @@
-let cart = JSON.parse(localStorage.getItem('sov_cart_v4')) || [];
+let cart = JSON.parse(localStorage.getItem('sov_cart_v5')) || [];
 
 function updateCartUI() {
     const count = document.getElementById('cart-count');
@@ -11,9 +11,9 @@ function addToCart(item, price) {
         return;
     }
     cart.push({ item, price, id: Date.now() });
-    localStorage.setItem('sov_cart_v4', JSON.stringify(cart));
+    localStorage.setItem('sov_cart_v5', JSON.stringify(cart));
     updateCartUI();
-    alert(`${item} added to industrial cart.`);
+    alert(`${item} added to cart.`);
 }
 
 function renderCartItems() {
@@ -22,7 +22,7 @@ function renderCartItems() {
     if (!list) return;
 
     if (cart.length === 0) {
-        list.innerHTML = "<tr><td colspan='3' style='padding:40px; text-align:center;'>Inventory Empty</td></tr>";
+        list.innerHTML = "<tr><td colspan='3' style='padding:40px; text-align:center;'>Empty Cart</td></tr>";
         totalEl.innerText = "0.00";
         return;
     }
@@ -44,7 +44,7 @@ function renderCartItems() {
 
 function removeFromCart(index) {
     cart.splice(index, 1);
-    localStorage.setItem('sov_cart_v4', JSON.stringify(cart));
+    localStorage.setItem('sov_cart_v5', JSON.stringify(cart));
     renderCartItems();
     updateCartUI();
 }
