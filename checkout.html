@@ -17,26 +17,19 @@
         </nav>
     </header>
 
-    <div class="forge-container" style="max-width:900px;margin:3rem auto;">
-        <h1>Checkout • Secure Payment in ZAR</h1>
-        
+    <div class="forge-container" style="max-width:900px;">
+        <h1>Secure Checkout • ZAR Payments</h1>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;">
             <div>
                 <h2>Order Summary</h2>
                 <div id="order-summary"></div>
-                <div class="total" style="font-size:1.5rem;margin-top:2rem;">Total: <strong id="checkout-total">R0.00</strong></div>
+                <div class="total" style="font-size:1.6rem;margin-top:2rem;">Total: <strong id="checkout-total">R0.00</strong></div>
             </div>
-
             <div>
-                <h2>Choose Payment Method</h2>
-                
-                <div style="margin-bottom:1.5rem;">
-                    <h3>Pay with PayPal</h3>
-                    <div id="paypal-button-container"></div>
-                </div>
-
-                <button onclick="simulatePayFast()" class="cta-btn" style="width:100%;margin-bottom:1rem;background:#d4af37;">Pay with PayFast (ZAR)</button>
-                <button onclick="simulateStripe()" class="cta-btn" style="width:100%;margin-bottom:1rem;background:#635bff;color:white;">Pay with Stripe (Test)</button>
+                <h2>Payment Options</h2>
+                <div id="paypal-button-container" style="margin-bottom:1.5rem;"></div>
+                <button onclick="simulatePayFast()" class="cta-btn" style="width:100%;margin-bottom:1rem;">Pay with PayFast (ZAR)</button>
+                <button onclick="simulateStripe()" class="cta-btn" style="width:100%;background:#635bff;color:white;">Pay with Stripe (Test)</button>
             </div>
         </div>
     </div>
@@ -48,62 +41,47 @@
         window.onload = () => {
             updateAuthUI();
             renderOrderSummary();
-            if (typeof paypal !== 'undefined') {
+            if (typeof paypal !== "undefined") {
                 paypal.Buttons({
-                    createOrder: (data, actions) => {
-                        return actions.order.create({
-                            purchase_units: [{ 
-                                amount: { 
-                                    value: (getCartTotal() / 15).toFixed(2), 
-                                    currency_code: 'ZAR' 
-                                } 
-                            }]
-                        });
-                    },
-                    onApprove: (data, actions) => {
-                        return actions.order.capture().then(() => {
-                            alert("✅ Payment successful via PayPal!\nYour digital products have been unlocked.");
-                            clearCart();
-                            window.location.href = "dashboard.html";
-                        });
+                    createOrder: (data, actions) => actions.order.create({
+                        purchase_units: [{ amount: { value: (getCartTotal()/15).toFixed(2), currency_code: "ZAR" } }]
+                    }),
+                    onApprove: () => {
+                        alert("✅ Payment successful via PayPal!");
+                        clearCart();
+                        window.location.href = "dashboard.html";
                     }
-                }).render('#paypal-button-container');
+                }).render("#paypal-button-container");
             }
         };
 
         function renderOrderSummary() {
-            const summary = document.getElementById('order-summary');
-            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            let html = '';
+            // Uses cart from core/cart.js
+            const summary = document.getElementById("order-summary");
+            let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+            let html = "";
             let total = 0;
             cart.forEach(item => {
                 const qty = item.qty || 1;
-                const itemTotal = item.price * qty;
-                total += itemTotal;
-                html += `<p>${item.name} × \( {qty} — R \){itemTotal}</p>`;
+                total += item.price * qty;
+                html += `<p>${item.name} × \( {qty} — R \){item.price * qty}</p>`;
             });
-            summary.innerHTML = html || '<p>No items in cart</p>';
-            document.getElementById('checkout-total').textContent = `R${total}`;
+            summary.innerHTML = html || "<p>Cart empty</p>";
+            document.getElementById("checkout-total").textContent = `R${total}`;
         }
 
         function simulatePayFast() {
-            alert("🔄 Redirecting to PayFast Sandbox (ZAR)...");
-            setTimeout(() => {
-                alert("✅ PayFast payment successful!");
-                clearCart();
-                window.location.href = "dashboard.html";
-            }, 1500);
+            alert("🔄 Redirecting to PayFast Sandbox...");
+            setTimeout(() => { alert("✅ PayFast payment successful!"); clearCart(); window.location.href = "dashboard.html"; }, 1500);
         }
 
         function simulateStripe() {
-            alert("✅ Stripe test payment approved!\nOrder complete.");
+            alert("✅ Stripe test payment approved!");
             clearCart();
             window.location.href = "dashboard.html";
         }
 
-        function clearCart() {
-            localStorage.removeItem('cart');
-        }
+        function clearCart() { localStorage.removeItem("cart"); }
     </script>
 </body>
 </html>
