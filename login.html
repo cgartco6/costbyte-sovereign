@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sovereign Agency • Secure Login</title>
+    <title>IdeaForge • Register / Login</title>
     <link rel="stylesheet" href="assets/sovereign.css">
 </head>
 <body class="login-page">
     <div class="login-container">
-        <h1>SECURE ACCESS TERMINAL</h1>
-        <p>High-Enterprise Operator Authentication</p>
+        <h1>FREE STARTUP LAUNCHER</h1>
+        <p>Register once — your ideas stay private</p>
         
-        <input type="text" id="username" placeholder="Operator ID" value="SovereignAdmin">
-        <input type="password" id="password" placeholder="Access Code" value="sovereign2026">
+        <input type="text" id="username" placeholder="Your Name / Company" value="Alex Rivera">
+        <input type="email" id="email" placeholder="Email (optional)" value="alex@example.com">
         
-        <button onclick="performLogin()">AUTHENTICATE SESSION</button>
+        <button onclick="performRegister()">REGISTER FREE &amp; CONTINUE</button>
         
-        <p class="note">Session will persist. Role-based access granted on login.</p>
+        <p class="note">No credit card. No limits. Persistent session.</p>
     </div>
 
     <script src="core/auth.js"></script>
     <script>
-        function performLogin() {
-            const username = document.getElementById('username').value.trim() || "SovereignAdmin";
-            login(username, "admin");
-            window.location.href = "dashboard.html";
+        function performRegister() {
+            const name = document.getElementById('username').value.trim() || "Founder";
+            const email = document.getElementById('email').value.trim();
+            login(name, "founder", email);
+            window.location.href = "intake.html";
         }
     </script>
 </body>
