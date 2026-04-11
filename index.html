@@ -35,7 +35,9 @@
             <div class="urgency">ONLY 760 PLACES LEFT THIS PHASE</div>
             <h1>LAUNCH YOUR STARTUP.<br>GET PAID FAST.</h1>
             <p class="impulse">Free tier available • Limited paid access • Aggressive Marketing Engine</p>
-            <button onclick="document.getElementById('tiers-section').scrollIntoView({ behavior: 'smooth' })" class="cta-btn pulse">
+            
+            <!-- FIXED: Big yellow button that scrolls to tiers -->
+            <button onclick="document.getElementById('tiers-section').scrollIntoView({ behavior: 'smooth' })" class="cta-btn">
                 CHOOSE YOUR TIER →
             </button>
         </div>
@@ -71,30 +73,9 @@
     <script src="core/cart.js"></script>
     <script>
         const tiers = [
-            {
-                id: 1,
-                name: "Free Tier",
-                price: 0,
-                desc: "Basic AI validation + limited studio access (3 documents per month)",
-                buttonText: "Start Free Now",
-                action: () => window.location.href = "studio.html"
-            },
-            {
-                id: 2,
-                name: "Limited Tier",
-                price: 499,
-                desc: "Full validation + branding studio + 10 documents + basic marketing tools",
-                buttonText: "Secure Limited Tier (R499)",
-                action: () => addToCart(2, "Limited Tier", 499)
-            },
-            {
-                id: 3,
-                name: "Complete Launch Tier",
-                price: 999,
-                desc: "Unlimited documents + priority marketing engine + full auto-posting & support",
-                buttonText: "Secure Complete Tier (R999)",
-                action: () => addToCart(3, "Complete Launch Tier", 999)
-            }
+            { id: 1, name: "Free Tier", price: 0, desc: "Basic AI validation + limited studio access (3 documents per month)", buttonText: "Start Free Now" },
+            { id: 2, name: "Limited Tier", price: 499, desc: "Full validation + branding studio + 10 documents + basic marketing tools", buttonText: "Secure Limited Tier (R499)" },
+            { id: 3, name: "Complete Launch Tier", price: 999, desc: "Unlimited documents + priority marketing engine + full auto-posting & support", buttonText: "Secure Complete Tier (R999)" }
         ];
 
         function renderTiers() {
