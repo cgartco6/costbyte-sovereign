@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IdeaForge Store • Checkout (ZAR)</title>
+    <link rel="stylesheet" href="assets/sovereign.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">IDEA<span>FORGE</span> STORE</div>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li onclick="window.location.href='index.html'">Continue Shopping</li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="forge-container" style="max-width:900px;margin:3rem auto;">
+        <h1>Checkout • Secure Payment in ZAR</h1>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;">
+            <!-- Order Summary -->
+            <div>
+                <h2>Order Summary</h2>
+                <div id="order-summary"></div>
+                <div class="total" style="font-size:1.5rem;margin-top:2rem;">Total: <strong id="checkout-total">R0.00</strong></div>
+            </div>
+
+            <!-- Payment Options -->
+            <div>
+                <h2>Choose Payment Method</h2>
+                
+                <!-- PayPal -->
+                <div style="margin-bottom:1.5rem;">
+                    <h3>Pay with PayPal</h3>
+                    <div id="paypal-button-container"></div>
+                </div>
+
+                <!-- PayFast -->
+                <button onclick="simulatePayFast()" class="cta-btn" style="width:100%;margin-bottom:1rem;background:#d4af37;">Pay with PayFast (ZAR)</button>
+
+                <!-- Stripe -->
+                <button onclick="simulateStripe()" class="cta-btn" style="width:100%;margin-bottom:1rem;background:#635bff;color:white;">Pay with Stripe (Test Card: 4242 4242 4242 4242)</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="core/auth.js"></script>
+    <script src="core/cart.js"></script>
+    <!-- PayPal SDK (sandbox) -->
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=ZAR"></script>
+    <script>
+        window.onload = () => {
+            updateAuthUI();
+            renderOrderSummary();
+            // Render PayPal button
+            if (typeof paypal !== 'undefined') {
+                paypal.Buttons({
+                    createOrder: (data, actions) => {
+                        return actions.order.create({
+                            purchase_units: [{ amount: { value: (getCartTotal()/15).toFixed(2), currency_code: 'ZAR' } }]  // demo conversion for sandbox
+                        });
+                    },
+                    onApprove: (data, actions) => {
+                        return actions.order.capture().then(() => {
+                            alert("✅ Payment successful via PayPal (ZAR)!\nYour files have been unlocked.");
+                            clearCart();
+                            window.location.href = "dashboard.html";
+                        });
+                    }
+                }).render('#paypal-button-container');
+            }
+        };
+
+        function renderOrderSummary() {
+            // Uses same cart logic from core/cart.js
+            const summary = document.getElementById('order-summary');
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            let html = '';
+            let total = 0;
+            cart.forEach(item => {
+                html += `<p>${item.name} × \( {item.qty} = R \){item.price * item.qty}</p>`;
+                total += item.price * item.qty;
+            });
+            summary.innerHTML = html || '<p>No items</p>';
+            document.getElementById('checkout-total').textContent = `R${total}`;
+        }
+
+        function simulatePayFast() {
+            alert("🔄 Redirecting to PayFast Sandbox (ZAR)...\nIn production this would process real payment.");
+            setTimeout(() => {
+                alert("✅ PayFast payment successful!\nOrder complete.");
+                clearCart();
+                window.location.href = "dashboard.html";
+            }, 1200);
+        }
+
+        function simulateStripe() {
+            alert("✅ Stripe test payment approved (card 4242 4242 4242 4242)\nOrder complete.");
+            clearCart();
+            window.location.href = "dashboard.html";
+        }
+
+        function clearCart() {
+            localStorage.removeItem('cart');
+        }
+    </script>
+</body>
+</html>
