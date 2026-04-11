@@ -2,26 +2,28 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="assets/sovereign.css">
-    <title>Dynamic Dashboard | Sovereign</title>
+    <title>Admin Dashboard | Sovereign</title>
 </head>
-<body>
+<body style="background:#f0f2f5;">
     <div style="display:flex; height:100vh;">
-        <div style="width:250px; background:var(--navy); color:#fff; padding:30px;">
-            <h3>DASHBOARD</h3>
-            <hr style="margin:20px 0; border:1px solid var(--gold);">
-            <p><strong>Role:</strong> <span id="user-role">ADMIN</span></p>
-            <nav style="margin-top:40px; display:flex; flex-direction:column; gap:20px;">
-                <a href="#" style="color:#fff; text-decoration:none;">Active Sprints</a>
-                <a href="#" style="color:#fff; text-decoration:none;">Revenue Logs</a>
-                <a href="#" style="color:#fff; text-decoration:none;">Client List</a>
+        <div style="width:280px; background:var(--navy); color:#fff; padding:40px 20px;">
+            <h2 style="color:var(--gold); letter-spacing:2px; margin-bottom:40px;">SOVEREIGN</h2>
+            <nav style="display:flex; flex-direction:column; gap:25px;">
+                <a href="#" style="color:#fff; text-decoration:none; font-weight:800;">[OWNER] REVENUE LOGS</a>
+                <a href="#" style="color:#fff; text-decoration:none;">[ADMIN] NODE STATUS</a>
+                <a href="#" style="color:#fff; text-decoration:none;">[CLIENT] ASSET FORGE</a>
+                <a href="index.html" style="color:var(--gold); text-decoration:none; margin-top:50px;">← EXIT TO SHOP</a>
             </nav>
         </div>
-        <div style="flex-grow:1; padding:50px; background:#f9f9f9;">
-            <h2 id="welcome-msg">Production Overview</h2>
-            <div class="grid" style="margin-top:40px;">
-                <div class="card"><h4>Active Nodes</h4><h2 class="price">1,000</h2></div>
-                <div class="card"><h4>Projected Reach</h4><h2 class="price">750k</h2></div>
-                <div class="card"><h4>Revenue Split</h4><h2 class="price">50/50</h2></div>
+        <div style="flex-grow:1; padding:60px; overflow-y:auto;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h2>System Overview</h2>
+                <span style="background:var(--gold); padding:5px 15px; font-weight:800; font-size:0.7rem;">STATUS: LIVE</span>
+            </div>
+            <div class="grid" style="margin-top:50px;">
+                <div class="card"><h4>Revenue (ZAR)</h4><h2 class="price">R45,000</h2><p>50% Settlement Active</p></div>
+                <div class="card"><h4>Active Nodes</h4><h2 class="price">1,000</h2><p>TikTok / X / LinkedIn</p></div>
+                <div class="card alpha"><h4>Target Sprint</h4><h2 class="price">750</h2><p>Impulse Buyers</p></div>
             </div>
         </div>
     </div>
