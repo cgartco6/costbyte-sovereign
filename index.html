@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CostByte Sovereign | Industrial Branding</title>
+    <link rel="stylesheet" href="assets/sovereign.css">
+</head>
+<body>
+    <nav class="shop-nav">
+        <div class="container nav-flex">
+            <a href="index.html" class="logo">COSTBYTE SOVEREIGN</a>
+            <div class="nav-links">
+                <a href="cart.html" class="nav-item">PRODUCTION QUEUE</a>
+                <a href="login.html" class="nav-item btn-gold-sm">CLIENT LOGIN</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1 class="hero-title">WE BUILD EMPIRES.</h1>
+            <p class="hero-subtitle">High-Enterprise Branding & Marketing Automation nodes for the elite sneaker-bag industry.</p>
+        </div>
+    </header>
+
+    <section class="packages container">
+        <h2 class="section-label">ACTIVE PRODUCTION TIERS</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>BRONZE</h3>
+                <h2 class="price-sm">R300.00</h2>
+                <button class="btn-navy" onclick="addToCart('Bronze Tier', 300)">ADD TO QUEUE</button>
+            </div>
+            <div class="card alpha">
+                <div class="tag">VIRAL</div>
+                <h3>AGGRESSIVE ENGINE</h3>
+                <h2 class="price-sm">R1,200.00</h2>
+                <button class="btn-gold" onclick="addToCart('Aggressive Engine', 1200)">ADD TO QUEUE</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="kati-chat" class="kati-container">
+        <div class="kati-header">KATI: CONVERSION SPECIALIST</div>
+        <div id="kati-log" class="kati-body"></div>
+        <div class="kati-input-area">
+            <input type="text" id="kati-input" placeholder="Ask Kati about production...">
+            <button onclick="askKati()">SEND</button>
+        </div>
+    </div>
+
+    <script>
+        async function askKati() {
+            const input = document.getElementById('kati-input');
+            const log = document.getElementById('kati-log');
+            if(!input.value) return;
+            
+            log.innerHTML += `<p><strong>You:</strong> ${input.value}</p>`;
+            const res = await fetch('/api/kati/chat', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ message: input.value })
+            });
+            const data = await res.json();
+            log.innerHTML += `<p><strong>Kati:</strong> ${data.reply}</p>`;
+            input.value = '';
+            log.scrollTop = log.scrollHeight;
+        }
+
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('sovereign_cart')) || [];
+            cart.push({name, price});
+            localStorage.setItem('sovereign_cart', JSON.stringify(cart));
+            alert(name + " added to production queue.");
+        }
+    </script>
+</body>
+</html>
